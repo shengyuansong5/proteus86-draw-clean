@@ -1,6 +1,6 @@
 # Codex / DeepSeek Harness 共用适配
 
-沿用一个私有 GitHub 仓库；共用 `proteus86.bridge` 分发器与 `bridge_operations.Operations`，底层仍是现有文件、固件、原生会话和数字验证模块。`adapters/codex/`、`adapters/dsh/` 分别提供薄平台入口；`scripts/dsh_mcp.py` 是 DSH 兼容启动器。不会复制两套核心，也不追求兼容所有 harness。核心统一推进，平台分别验证；0.9.2b1 提供共用 wheel 和两个平台安装入口包，见 [安装与打包](packaging.md)及 [Beta 验证](validation/release-v092b1-20261028.json)。
+沿用同一个已审核的 GitHub 仓库（公开授权范围见 [公开说明](publication.md)）；共用 `proteus86.bridge` 分发器与 `bridge_operations.Operations`，底层仍是现有文件、固件、原生会话和数字验证模块。`adapters/codex/`、`adapters/dsh/` 分别提供薄平台入口；`scripts/dsh_mcp.py` 是 DSH 兼容启动器。不会复制两套核心，也不追求兼容所有 harness。核心统一推进，平台分别验证；0.9.2b1 提供共用 wheel 和两个平台安装入口包，见 [安装与打包](packaging.md)及 [Beta 验证](validation/release-v092b1-20261028.json)。
 
 | 功能 | 两平台共用接口 |
 |---|---|

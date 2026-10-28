@@ -1,5 +1,7 @@
 # Proteus 8.6 Python 文件画图与布线
 
+源码公开范围、MIT 归属及尚未解决的 Proteus 使用条款风险见 [公开与许可说明](docs/publication.md)。源码许可不替代 Proteus 商业软件许可；本项目不包含厂商程序、器件库或模板。
+
 > **适用范围：Codex 与 DeepSeek Harness 共用同一套 Python 核心、结构化接口、技能及验收规则。** 能力与证据范围见 [双平台适配](docs/platform-parity.md)，dsh 配置见 [使用说明](docs/dsh-integration.md)。其他 harness 仍需独立集成；不能把某个平台的历史仿真结果当作另一个平台的新验收。
 
 已在本机 **Proteus 8.6 SP2，build 23525** 验证。供 Codex 与 dsh 共用的核心通过 Python 直接读写保存的 `.pdsprj`，完成摆件、布线、修改、核网和预览。常规文件流程不启动 Proteus，不用 Computer Use。
@@ -513,4 +515,4 @@ python -m proteus86 --install 'D:\Program Files (x86)\Labcenter Electronics\Prot
 
 ## 干净源码发行补充
 
-两个旧独立固件现可用自有 Python 汇编器重建，全部程序地址/字节与随附 HEX 一致；两个上游已固定到逐文件核对的提交。新增构建与来源核对没有运行 Proteus，不改写原生验收、原固件或旧记录。此前已从审核源码建立无父初始提交的私有仓库；本次双平台版本沿用该仓库，原私有仓库仍保留。当前保持私有，公开仍需后续授权。详见 [本轮补充](docs/clean-source-preparation.md)。
+两个旧独立固件现可用自有 Python 汇编器重建，全部程序地址/字节与随附 HEX 一致；两个上游已固定到逐文件核对的提交。新增构建与来源核对没有运行 Proteus，不改写原生验收、原固件或旧记录。此前已从审核源码建立无父初始提交的私有仓库；本次双平台版本沿用该仓库，原私有仓库仍保留。后续源码公开授权及未解决的许可风险见 [公开说明](docs/publication.md)。详见 [本轮补充](docs/clean-source-preparation.md)。
