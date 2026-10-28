@@ -1,6 +1,6 @@
-# Proteus 8.6 automation for Codex
+# Proteus 8.6 automation for Codex and DeepSeek Harness
 
-This tool, skill and default workflow target **Codex**. Other AI harnesses need their own skill loading, local execution, permissions/path integration and end-to-end validation; reusable Python APIs do not certify another harness.
+This tool supports **Codex and DeepSeek Harness** through the same Python core, `proteus86.bridge` contract and complete skill resources. Keep both platforms' exposed methods, parameter semantics and safeguards aligned; `tests/test_bridge_parity.py` must detect public core methods missing from the bridge. Other harnesses need independent integration. Capability equality does not transfer native evidence between platforms. See `docs/platform-parity.md`; retain historical release/evidence files unchanged.
 
 ## Workflow and boundaries
 
@@ -46,7 +46,7 @@ PCB routing, arbitrary voltage/waveform/model-memory acquisition, embedded VSM S
 
 ## Validation and release preparation
 
-Run meaningful regressions for implementation changes: `python -m unittest discover -s tests -v`. Final 0.9.1 root result is 295 passed, zero skipped, 120.379 seconds, recorded in `docs/validation/v0.9.1.json`. The independent public candidate ran 295 tests with two optional private-fixture skips, no failures/errors and 120.654 seconds; keep that separate from the root zero-skip result. The public CLI completed real native 16-key sequential 5/5/5/1 acceptance, 25 reconstructed displays, 658 SDF samples and 118 actuator readbacks; four owned processes closed gracefully and sources stayed unchanged. Its owned running capture showed 01234567 with before/after/pause times .372412/.422412/.472412 seconds and clean diagnostics. These are current results, separate from 0.9.0's 234 tests/670 samples.
+Run meaningful regressions for implementation changes: `python -m unittest discover -s tests -v`. Final 0.9.1 root result is 295 passed, zero skipped, 120.379 seconds, recorded in `artifacts/validation_v091.json`. The independent public candidate ran 295 tests with two optional private-fixture skips, no failures/errors and 120.654 seconds; keep that separate from the root zero-skip result. The public CLI completed real native 16-key sequential 5/5/5/1 acceptance, 25 reconstructed displays, 658 SDF samples and 118 actuator readbacks; four owned processes closed gracefully and sources stayed unchanged. Its owned running capture showed 01234567 with before/after/pause times .372412/.422412/.472412 seconds and clean diagnostics. These are current results, separate from 0.9.0's 234 tests/670 samples.
 
 Both 32/48-part profiles passed native save and fresh independent reopen with full pins/properties, models/positions/values, wire/junction geometry and terminal-caption anchors retained, net29/SDF39, four owned processes gracefully closed and sources unchanged. Drawing audits at default and one-native-unit minimum spans passed: 32 parts 102/104 straight, 48 parts 118/120 straight, four bends each and zero reported overlap/non-node-contact/near-parallel issues; each retains 35 conservative text warnings. Paired example-generation medians improved about 14.6%/14.4% across 12 interleaved runs under one current core/Python/template/firmware, not a general core or simulation speed claim.
 
@@ -56,7 +56,7 @@ Two owned real PDS startup interruptions were cleaned after the verified native 
 
 The complete skill installer copies supporting resources, requires `--update` to change an existing tree and verifies recoverable backups outside the auto-loaded `skills/` directory. Preserve user extras and retain original/backup paths if rollback is blocked. Installed `.proteus86-install.json` contains a local checkout path: do not publish it.
 
-This is a reviewed source candidate only. **Do not publish or change repository visibility without the user's later authorization.** Release descriptions must say Codex, distinguish native/offline/pending results and retain licensing/provenance limits. See `docs/release-0.9.1.md`; do not rewrite the 0.9.0 release/evidence.
+This cycle prepares reviewed source and may synchronize the already authorized private GitHub repository. **Keep it private; actual public release or visibility changes need the user's later authorization.** Release descriptions must say Codex, distinguish native/offline/pending results and retain licensing/provenance limits. See `docs/release-0.9.1.md`; do not rewrite the 0.9.0 release/evidence.
 
 ## Clean-source follow-up
 

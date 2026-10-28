@@ -1,0 +1,16 @@
+# Apply after dsh-headless.patch.yml. Create output/dsh-mcp before launch.
+# DSH_PROTEUS_PYTHON may select an absolute Python 3.10+ executable.
+- insert:
+    - id: mcp-proteus86
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: proteus86
+        transport: stdio
+        command: !!js process.env.DSH_PROTEUS_PYTHON ?? 'python'
+        args:
+          - !!js process.cwd() + '/scripts/dsh_mcp.py'
+          - --output-root
+          - !!js process.cwd() + '/output/dsh-mcp'
+        cwd: !!js process.cwd()
+        env: !!js "Object.fromEntries(Object.entries({ PYTHONDONTWRITEBYTECODE: '1', PROTEUS86_TEMPLATE: process.env.PROTEUS86_TEMPLATE, PROTEUS86_HOME: process.env.PROTEUS86_HOME, TEMP: process.env.TEMP, TMP: process.env.TMP }).filter(([, value]) => value !== undefined))"
+        failOnStartupError: true

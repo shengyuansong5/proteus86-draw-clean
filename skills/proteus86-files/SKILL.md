@@ -1,11 +1,13 @@
 ---
 name: proteus86-files
-description: Create, place, route and inspect saved Proteus 8.6 schematics with Python, and run owned native digital checks when requested. Intended for Codex; other AI harnesses require adaptation and independent validation.
+description: Create, edit, place, route and inspect Proteus 8.6 schematics, bind firmware and run owned native digital checks. Codex and DeepSeek Harness share one structured API and the same validation rules.
 ---
 
-# Proteus 8.6 file workflow for Codex
+# Proteus 8.6 workflow for Codex and DeepSeek Harness
 
-This skill, its default workflow and installer target **Codex**. Other harnesses must adapt skill loading, filesystem/terminal tools, permissions and local paths, then validate their own integration. Reusable Python interfaces are not evidence that another harness is integrated.
+Codex and DeepSeek Harness use the same Python runtime, structured bridge, complete skill references and acceptance rules. The default installer still selects Codex for compatibility; `--platform dsh` selects DSH. Other harnesses require their own integration and validation. Do not inherit another platform's native results: report actual evidence from the current run.
+
+For the shared tool transport, read [bridge.md](references/bridge.md). DSH tools are named `mcp__proteus86__capabilities`, `project_action`, `circuit_edit` and (when enabled) `native_action` in the same namespace. Codex can call the identical dispatcher with `python -m proteus86.bridge` or through MCP. Call capabilities first; its roots, methods and opt-in state are authoritative. The former `draw_circuit` tool remains compatible. Do not replace failed shell confinement with unrestricted shell execution.
 
 ## Locate the tool and choose the operation
 

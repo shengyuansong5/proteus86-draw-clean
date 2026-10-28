@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-28",
+  "passed": true,
+  "scope": "One local DeepSeek Harness MCP saved-file circuit workflow; no native editor or simulation",
+  "source": {
+    "repository": "shengyuansong5/proteus86-draw-clean",
+    "local_source_commit": "848973d5944c4fb0cbbaf177203d3b7c01466d00",
+    "fresh_independent_clone": true,
+    "original_clone_unchanged": true,
+    "runtime_36_modules_match_prior_manifest": true,
+    "github_changes": false
+  },
+  "harness": {
+    "package": "@deepseek-ai/dsh",
+    "version": "0.2.1-rc.2",
+    "surface": "headless",
+    "provider": "deepseek-account",
+    "model": "deepseek-flash",
+    "installed_catalog_name": "DeepSeek-V4.1-Flash",
+    "reasoning_effort": "low",
+    "exact_session_selection_verified": true,
+    "web_profile_modified": false
+  },
+  "baseline": {
+    "skill_discovery": "SKILL_NOT_DISCOVERED",
+    "direct_shell_route_passed": false,
+    "shell_errors": [
+      "SetNamedSecurityInfoW failed (Win32 5): grantWrite",
+      "windows-acl temp grant materialization failed and its cleanup also failed"
+    ],
+    "temporary_acl_diagnostic": "2 scoped user grants verified; did not restore shell operation",
+    "first_mcp_request": "Rejected schema: Python \\Z anchor is not JSON Schema regex",
+    "schema_fix": "Portable JSON Schema pattern; Python fullmatch guard retained"
+  },
+  "adapter": {
+    "transport": "stdio MCP",
+    "tool": "mcp__proteus86__draw_circuit",
+    "arbitrary_shell_exposed": false,
+    "overwrite_exposed": false,
+    "native_launch_exposed": false,
+    "output_scope": "Fresh child below fixed output root",
+    "skill_loaded": true,
+    "shell_calls_in_final_session": 0,
+    "draw_calls": 7,
+    "first_draw": "Failed auto placement/routing; retained as failed",
+    "final_draw": "Model adjusted explicit placement/rotation; all checks passed"
+  },
+  "independent_acceptance": {
+    "components": {
+      "R1": [
+        "RESISTOR",
+        "1k"
+      ],
+      "R2": [
+        "RESISTOR",
+        "2.2k"
+      ],
+      "R3": [
+        "RESISTOR",
+        "10k"
+      ],
+      "C1": [
+        "CAPACITOR",
+        "100n"
+      ],
+      "C2": [
+        "CAPACITOR",
+        "1u"
+      ]
+    },
+    "expected_nets": [
+      [
+        "VIN",
+        "R1.1"
+      ],
+      [
+        "R1.2",
+        "R2.1",
+        "C1.1"
+      ],
+      [
+        "OUT",
+        "R2.2",
+        "R3.1",
+        "C2.1"
+      ],
+      [
+        "GND",
+        "R3.2",
+        "C1.2",
+        "C2.2"
+      ]
+    ],
+    "netcheck": {
+      "passed": true,
+      "expected_nets": 4,
+      "actual_nets": 4,
+      "errors": []
+    },
+    "wiringcheck": {
+      "passed": true,
+      "errors": [],
+      "warnings": [],
+      "sheet_mm": {
+        "width": 254.0,
+        "height": 177.8
+      },
+      "components": 5,
+      "wires": 12,
+      "junctions": 3
+    },
+    "wire_quality": {
+      "passed": true,
+      "scope": "Saved drawing geometry only; not electrical, simulation or PCB clearance verification",
+      "minimum_gap_mm": 2.54,
+      "minimum_parallel_run_mm": 2.54,
+      "overlaps": [],
+      "crossings": [],
+      "near_parallel": [],
+      "minimum_measured_parallel_gap_mm": 2.54,
+      "wires": 12,
+      "straight_wires": 8,
+      "bends": 6,
+      "wire_length_mm": 265.48
+    },
+    "svg_xml_and_labels_checked": true,
+    "svg_raster_visually_inspected": true,
+    "preview_scope": "Simplified file preview, not native symbol/simulation evidence",
+    "project_sha256": "f9c518703b84dfa6fb43ed1c7d714ebd3ddaca760310f9880f0e2885b88f87b5",
+    "design_sha256": "e3e89f7a643ee0b25088d2f9649ce8fc0ca7694170b26bca1f1e30dcc0bcf6fe"
+  },
+  "regressions": {
+    "tests": 317,
+    "passed": 316,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 144.836,
+    "skip_reason": "Optional private native-save reproduction not distributed",
+    "final_schema_change_targeted_recheck": {
+      "tests": 5,
+      "passed": 5
+    }
+  },
+  "native_editor_executed": false,
+  "native_simulation_executed": false,
+  "temporary_projects_sessions_and_credentials_deleted": true,
+  "cleanup": {
+    "independent_D_drive_test_directory_removed": true,
+    "workspace_test_directory_removed": true,
+    "temporary_credentials_removed": true,
+    "owned_test_processes_remaining": 0
+  }
+}

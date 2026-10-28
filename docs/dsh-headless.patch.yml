@@ -1,0 +1,17 @@
+# Run from the checkout root; see dsh-integration.md.
+# Use an existing DeepSeek Harness sign-in; no credentials belong in this file.
+- id: credentials
+  disabled: false
+- id: authorization
+  disabled: false
+- id: deepseek-account
+  disabled: false
+- id: agent-default-model
+  config:
+    provider: deepseek-account
+    model: deepseek-flash
+    reasoningEffort: low
+- id: skill-filesystem
+  config:
+    customSkillDirs:
+      - !!js process.cwd() + '/skills'

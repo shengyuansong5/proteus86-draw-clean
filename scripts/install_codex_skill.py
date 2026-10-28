@@ -1,4 +1,4 @@
-"""Install the whole Codex skill; explicit updates retain a verified backup."""
+"""Install the shared Codex/DSH skill; explicit updates retain a verified backup."""
 import argparse
 import hashlib
 import json
@@ -243,14 +243,57 @@ def install_skill(source, codex_directory, *, update=False, checkout_root=None):
                     raise
 
 
-def main():
+def install_platform_skill(root, directory, platform, *, update=False):
+    """Assemble one small platform entry over the same canonical resources."""
+    if platform not in ('codex', 'dsh'):
+        raise ValueError('Supported platform entries are codex and dsh')
+    root, directory = Path(root).resolve(), Path(directory).resolve()
+    source = root / 'skills' / SKILL
+    incoming = _snapshot(source)
+    overlay = root / 'adapters' / platform / 'skill.md'
+    text = overlay.read_text(encoding='utf-8-sig')
+    parent = directory / '.skill-source-builds'
+    if parent.exists() and (parent.is_symlink() or getattr(parent.lstat(), 'st_reparse_tag', 0)):
+        raise ValueError('Adapter source staging must not be a reparse point')
+    parent.mkdir(parents=True, exist_ok=True)
+    staged = Path(tempfile.mkdtemp(prefix=SKILL + '-' + platform + '-', dir=parent))
+    failure, result = None, None
+    try:
+        for name in incoming:
+            _copy_file(source / name, staged / name)
+        original = (staged / 'SKILL.md').read_text(encoding='utf-8-sig')
+        (staged / 'SKILL.md').write_text(original.rstrip() + '\n\n' + text, encoding='utf-8')
+        if _snapshot(source) != incoming or overlay.read_text(encoding='utf-8-sig') != text:
+            raise RuntimeError('Canonical skill or platform entry changed during assembly')
+        result = install_skill(staged, directory, update=update, checkout_root=root)
+        result['platform'] = platform
+        return result
+    except BaseException as error:
+        failure = error
+        raise
+    finally:
+        try:
+            _remove_staging(staged, parent)
+        except (OSError, RuntimeError) as cleanup_error:
+            if failure is not None:
+                failure.skill_staging_retained = str(staged)
+                failure.skill_cleanup_error = str(cleanup_error)
+            elif result is not None:
+                result.update(cleanup_warning=str(cleanup_error), staging_retained=str(staged))
+            else:
+                raise
+
+
+def main(default_platform='codex'):
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--platform', choices=('codex', 'dsh'), default=default_platform)
+    parser.add_argument('--home', type=Path, help='Explicit harness home; default is CODEX_HOME or DSH_HOME')
     parser.add_argument('--update', action='store_true', help='Back up and replace a different installed skill')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
-    codex_directory = Path(os.environ.get('CODEX_HOME') or Path.home() / '.codex')
-    result = install_skill(root / 'skills' / SKILL, codex_directory,
-                           update=args.update, checkout_root=root)
+    variable, fallback = ('DSH_HOME', '.dsh') if args.platform == 'dsh' else ('CODEX_HOME', '.codex')
+    codex_directory = args.home or Path(os.environ.get(variable) or Path.home() / fallback)
+    result = install_platform_skill(root, codex_directory, args.platform, update=args.update)
     print(json.dumps(result, ensure_ascii=False))
 
 

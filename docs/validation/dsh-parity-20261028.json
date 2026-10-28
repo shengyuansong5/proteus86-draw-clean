@@ -1,0 +1,163 @@
+{
+  "date": "2026-10-28",
+  "passed": true,
+  "architecture": {
+    "repositories_created": 0,
+    "github_changes": false,
+    "shared_core": true,
+    "platform_entries": [
+      "codex",
+      "dsh"
+    ],
+    "scope": "One existing private repository, shared core, two thin platform entries; no all-harness framework",
+    "old_public_API_and_CLI_preserved": true,
+    "original_36_runtime_modules_unchanged": true,
+    "added_runtime_modules": 3,
+    "added_runtime_bytes": 46636,
+    "baseline_runtime_bytes": 414459,
+    "new_external_dependencies": 0
+  },
+  "shared_contract": {
+    "sha256": "53214d9090c90e6e194b3658b25c618c7cbea574b84260b93f8f6fc1a918c1ac",
+    "codex_and_dsh_match": true,
+    "circuit_methods": 44,
+    "simulation_methods": 18,
+    "owned_editor_methods": 6,
+    "native_opt_in_and_path_guards_preserved": true,
+    "private_methods_or_arbitrary_shell_exposed": false
+  },
+  "file_acceptance": {
+    "cross_platform_models_values_positions_rotations_equal": true,
+    "expected_nets": 2,
+    "checked_backup_reopened_with_prior_values": true,
+    "source_values_preserved": true,
+    "bound_MCU_components": 48,
+    "bound_expected_nets": 29,
+    "portable_firmware_hash_equal": true,
+    "package_created": true
+  },
+  "editor_acceptance": {
+    "fresh_independent_reopen": true,
+    "complete_SDF_equal": true,
+    "parts": 48,
+    "native_networks": 39,
+    "processes_closed": true
+  },
+  "dsh_native_acceptance": {
+    "provider": "deepseek-account",
+    "model": "deepseek-flash",
+    "catalog_name": "DeepSeek-V4.1-Flash",
+    "reasoning_effort": "low",
+    "actual_model_tool_calls": true,
+    "all_groups_passed_and_closed": true,
+    "group_sizes": [
+      5,
+      5,
+      5,
+      1
+    ],
+    "serial": 16,
+    "cases_completed": 16,
+    "reconstructed_frames": 25,
+    "native_sdf_samples": 646,
+    "cancelled": false,
+    "source_unchanged": true,
+    "initialization_seconds": [
+      0.2,
+      0.2,
+      0.2,
+      0.2
+    ],
+    "scope": "Finite sequential key/debounce/hold/rearm windows; non-atomic display reconstruction"
+  },
+  "capture_acceptance": {
+    "passed": true,
+    "visually_checked_initial_digits": "01234567",
+    "before_seconds": 0.322412,
+    "after_seconds": 0.472412,
+    "paused_seconds": 0.522412,
+    "diagnostic_errors": 0,
+    "diagnostic_warnings": 0,
+    "local_proof_directory": "output/parity-proof-20261028",
+    "images_excluded_from_source_distribution": true
+  },
+  "asynchronous_acceptance": {
+    "passed": true,
+    "worker_completed": true,
+    "native_seconds": 0.2,
+    "owned_processes_closed": true,
+    "same_prepared_input_sha_before_and_after_TEMP_fix": true,
+    "codex_native_seconds": 0.2,
+    "codex_diagnostics_passed": true,
+    "codex_owned_process_closed": true,
+    "fix": "Scope ASCII TEMP/TMP and tempfile cache to native actions and workers, restore on interruption",
+    "earlier_failed_processes_independently_confirmed_closed": true
+  },
+  "earlier_failures": {
+    "optional_environment_config_rejection_preserved": true,
+    "synchronous_MCP_timeout": true,
+    "synchronous_RPC_not_relabelled_passed": true,
+    "background_16_key_result_independently_verified_completed": true,
+    "async_initialization_failures_preserved": 2,
+    "failed_async_source_and_prepared_case_not_relabelled": true,
+    "failed_graceful_cleanup_preserved": true,
+    "exact_owned_Popen_fallback_added": true,
+    "concurrent_suite_device_library_read_error_preserved": true,
+    "full_suite_repeated_in_isolation": true
+  },
+  "regressions": {
+    "tests": 330,
+    "passed": 329,
+    "skipped": 1,
+    "errors": 0,
+    "failures": 0,
+    "seconds": 152.108,
+    "skip_reason": "Optional private native-save fixture not distributed",
+    "public_method_drift_and_async_cancellation_cleanup_and_installer_coverage": true
+  },
+  "installations": {
+    "two_platform_entries_installed": true,
+    "canonical_reference_files_verified_equal": true,
+    "platform_entry_text_intentionally_distinct": true,
+    "checked_backups_outside_skill_scan": true,
+    "web_scoped_MCP_added": true,
+    "web_profile_composition_passed": true,
+    "web_model_default_changed": false,
+    "web_UI_verified": false,
+    "web_UI_blocker": "Computer Use could not reliably determine Windows browser URL; no page input performed",
+    "installed_DSH_default_skill_discovery_passed": true,
+    "default_discovery_test_no_custom_skill_dirs": true
+  },
+  "permissions": {
+    "workspace_directory_existed_and_cwd_verified": true,
+    "not_missing_workspace_creation": true,
+    "workspace_write_triggered_DSH_ACL_materialization": true,
+    "initial_user_WRITE_OWNER_precondition_missing": true,
+    "temporary_directory_grant_also_failed": true,
+    "DSH_builtin_shell_not_relabelled_fixed": true,
+    "global_sandbox_mode_not_changed": true
+  },
+  "temporary_projects_sessions_credentials_removed": true,
+  "local_evidence": {
+    "directory": "output/parity-proof-20261028/evidence",
+    "sha256": {
+      "failed-async-source.json": "057d22fc78816ea15cc300bc8a32970500d9d57916d7c539e92b17599e7de9b2",
+      "failed-async-prepared.json": "9e6884a41859e12ea3ba88619ce8f0d5e34843a2fd70e3c6901d22d027c30f0a",
+      "passed-async-ascii-fixed.json": "1f8e10359d7e31a798b4f623eebe6980082c7c81a69cb26e19bfd7b06d5c3bed",
+      "passed-native-matrix.json": "dc99e24f071a3bbe44d595a93cda246956aa6f135eb77ab9c35ee9548aa9cb85",
+      "passed-isolated-suite.log": "5c1ac417078ad772542e4ceb6d10b007631e19f653f94001b854325c35ee9132",
+      "failed-concurrent-suite.log": "ae3ddddd7bf9a740ed0cf98de280ea74dcaa7febbfd30d70041d7a251fe04108",
+      "codex-native.json": "4500abd69a449bb7518d81f50b5cc927588b68aafa59bdb90e3557f474405c06",
+      "installation-initial.json": "cffe2855c78d2d9dfaaf07fdd648561a4673ea7fdaf293e0a17cfe75487a92cc"
+    },
+    "excluded_from_source_distribution": true
+  },
+  "cleanup": {
+    "temporary_file_projects_removed": true,
+    "native_run_bundles_removed": true,
+    "temporary_sessions_credentials_removed": true,
+    "test_processes_remaining": 0,
+    "local_validation_images_and_failed_evidence_retained": true,
+    "installed_platform_entries_and_web_configuration_retained": true
+  }
+}

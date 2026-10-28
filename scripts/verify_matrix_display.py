@@ -32,8 +32,14 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from examples.build_matrix_firmware import build as build_firmware
-from examples.draw_matrix_display import generate
+if __package__ in ('proteus86_support.scripts', '_proteus86_checkout_support.scripts'):
+    from importlib import import_module
+    _support = __package__.rsplit('.', 1)[0]
+    build_firmware = import_module(_support + '.examples.build_matrix_firmware').build
+    generate = import_module(_support + '.examples.draw_matrix_display').generate
+else:
+    from examples.build_matrix_firmware import build as build_firmware
+    from examples.draw_matrix_display import generate
 from proteus86 import __version__
 from proteus86.digital import prepare_control_batches, read_display_frame, run_control_batches
 from proteus86.inspection import netcheck

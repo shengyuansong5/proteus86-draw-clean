@@ -33,6 +33,25 @@ class SkillInstallationTests(unittest.TestCase):
     def install(self, **options):
         return installer.install_skill(self.source, self.home, **options)
 
+    def test_two_platform_entries_share_resources_without_duplicating_core(self):
+        checkout = self.source.parents[1]
+        for platform in ('codex', 'dsh'):
+            folder = checkout / 'adapters' / platform
+            folder.mkdir(parents=True)
+            (folder / 'skill.md').write_text('Adapter: ' + platform, encoding='utf-8')
+        results = []
+        for platform in ('codex', 'dsh'):
+            home = self.root / ('home-' + platform)
+            result = installer.install_platform_skill(checkout, home, platform)
+            results.append(home / 'skills' / installer.SKILL)
+            self.assertEqual(result['platform'], platform)
+            self.assertEqual(list((home / '.skill-source-builds').iterdir()), [])
+        self.assertNotEqual((results[0] / 'SKILL.md').read_bytes(), (results[1] / 'SKILL.md').read_bytes())
+        self.assertEqual((results[0] / 'references/shared.md').read_bytes(),
+                         (results[1] / 'references/shared.md').read_bytes())
+        self.assertEqual((self.source / 'SKILL.md').read_text(encoding='utf-8'),
+                         '---\nname: proteus86-files\n---\nInstructions\n')
+
     def test_complete_resource_tree_and_local_checkout_locator_are_installed(self):
         result = self.install()
         self.assertEqual(result['status'], 'installed')

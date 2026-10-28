@@ -1,16 +1,16 @@
 # Proteus 8.6 Python 文件画图与布线
 
-> **适用范围：本项目的 Skill、默认工作流和安装脚本面向 Codex。** 其他 AI harness 需自行适配技能加载、文件/终端工具调用、权限与环境路径，并自行完成端到端验证。底层 Python API/CLI 可复用；其他 harness 的集成兼容性尚未验证。
+> **适用范围：Codex 与 DeepSeek Harness 共用同一套 Python 核心、结构化接口、技能及验收规则。** 能力与证据范围见 [双平台适配](docs/platform-parity.md)，dsh 配置见 [使用说明](docs/dsh-integration.md)。其他 harness 仍需独立集成；不能把某个平台的历史仿真结果当作另一个平台的新验收。
 
-已在本机 **Proteus 8.6 SP2，build 23525** 验证。目标是让 Codex 快速使用 Proteus：通过 Python 直接读写保存的 `.pdsprj`，完成摆件、布线、修改、核网和预览。常规流程不启动 Proteus，不用 Computer Use。
+已在本机 **Proteus 8.6 SP2，build 23525** 验证。供 Codex 与 dsh 共用的核心通过 Python 直接读写保存的 `.pdsprj`，完成摆件、布线、修改、核网和预览。常规文件流程不启动 Proteus，不用 Computer Use。
 
-功能目标参考 [RACErace/pdsprj-auto](https://github.com/RACErace/pdsprj-auto)，适配已验证的 Proteus 8.6 保存格式。当前版本 **0.9.1**。文件生成、布线与检查只需 Python 3.10+ 标准库；原生验证需要本机已授权安装，运行截图另需可选的 Pillow>=11.2.1。来源与许可见 [THIRD_PARTY.md](THIRD_PARTY.md)，Codex 简明流程见 [SKILL.md](skills/proteus86-files/SKILL.md)。
+功能目标参考 [RACErace/pdsprj-auto](https://github.com/RACErace/pdsprj-auto)，适配已验证的 Proteus 8.6 保存格式。当前候选版本 **0.9.2b1（双平台 Beta）**，见 [发布说明](docs/release-0.9.2-beta.1.md)和[安装与打包](docs/packaging.md)。文件生成、布线与检查只需 Python 3.10+ 标准库；原生验证需要本机已授权安装，运行截图另需可选的 Pillow>=11.2.1。来源与许可见 [THIRD_PARTY.md](THIRD_PARTY.md)，共用流程见 [SKILL.md](skills/proteus86-files/SKILL.md)。
 
 优先级：**功能 → 稳定性 → 速度 → 排版**。0.9.1 增加公开可复现的矩阵/数码管验证脚本、端子文字坐标接口和启动中断清理，改善独立示例的短直线与端子排版。`scripts/verify_matrix_display.py` 默认只准备文件；只有显式 `--execute-native` 才启动本次自有 Proteus，`--capture` 另行请求运行截图。
 
-新版 48 元件布局已通过原生起仿、运行画面、保存/Python 重读、29 个期望网络和 39 个原生网络检查；118/120 条导线为直线、共 4 个折弯，在默认及一个原生单位的最短并行区段检查下均无报告的叠线、非结点接触或过近并行。仍保留 35 条保守文字估算警告，这些不是电气失败。新公开 CLI 已完成本轮原生验收：16 键按 5/5/5/1 顺序分组、25 次显示重建、658 个原生 SDF 样本、118 次输入状态回读，四个自有进程正常关闭且源文件不变。本机 295 项回归全部通过、0 跳过；旧版 670 次采样仍保留原版本范围。
+历史 0.9.1 的 48 元件布局已通过原生起仿、运行画面、保存/Python 重读、29 个期望网络和 39 个原生网络检查；118/120 条导线为直线、共 4 个折弯，在默认及一个原生单位的最短并行区段检查下均无报告的叠线、非结点接触或过近并行。仍保留 35 条保守文字估算警告。该版本 CLI 原生验收包含 16 键按 5/5/5/1 顺序分组、25 次显示重建、658 个原生 SDF 样本、118 次输入状态回读；四个自有进程正常关闭且源文件不变，295 项回归通过、0 跳过。双平台实际模型与原生验收另见 [dsh 适配记录](docs/validation/dsh-parity-20261028.json)，其中的 646 次采样不与历史 658/670 次混用。
 
-当前结果以 [本轮脱敏记录](docs/validation/v0.9.1.json) 和 [0.9.1 说明](docs/release-0.9.1.md) 为准。[0.9.0 说明](docs/release-0.9.0.md)及[历史验收](skills/proteus86-files/references/history.md)保留原版本范围；未将旧截图、计数或课程场景改标为新重测。文件、原生编辑器、实际仿真、截图与中断清理分别报告。
+本次发布包的文件回归、隔离安装与双平台技能检查见 [Beta 打包记录](docs/validation/release-v092b1-20261028.json)。打包阶段没有启动 Proteus；既有双平台原生结果仍属于打包前的源码验证，安装后的 wheel 未重新进行原生仿真，dsh 网页界面交互也仍未验证。[0.9.1 说明](docs/release-0.9.1.md)、[0.9.0 说明](docs/release-0.9.0.md)及[历史验收](skills/proteus86-files/references/history.md)保留原版本范围。
 
 ## 立即使用
 
@@ -27,7 +27,17 @@ python -m proteus86 render output\my_parallel86.pdsprj -o output\my_parallel86.s
 
 Codex 在本项目会读取 `AGENTS.md`，优先使用文件接口。要让其他项目也发现此技能，运行 `python scripts\install_codex_skill.py`，将已校验的技能复制到当前用户的 Codex 技能目录；目标内容不同时默认拒绝覆盖，明确加 `--update` 才会备份并更新。技能名为 `$proteus86-files`，描述匹配时也可自动选用；若当前对话未刷新技能列表，在后续对话使用。
 
-源码发行不包含本机生成工程、运行包或截图。独立验证固件 [blink8051.a51](examples/blink8051.a51) 和对应 HEX 随附；生成项目时必须使用自己兼容的本地模板和库。重新生成独立副本：
+本机现成结果：
+
+- 并联电阻工程（本机生成记录，不随源码分发）：两个电阻、VCC/GND，真实 Proteus 网表验收通过。
+- AT89C52 自动布局布线工程（本机生成记录，不随源码分发）及 SVG 预览（本机生成记录，不随源码分发）：芯片、电阻、LED 的文件画图示例，未加载固件。
+- LED 工程（本机生成记录，不随源码分发）：此前已在 Proteus 界面实际点亮。
+- 25 元件运行工程（本机生成记录，不随源码分发）：8 路 LED 固件验证通过。
+- 42 元件运行工程（本机生成记录，不随源码分发）：已修复继电器额定值，实际运行日志无错误/警告，LED 与触点随固件切换。
+- 25 元件工程（本机生成记录，不随源码分发）和 42 元件工程（本机生成记录，不随源码分发）：标号避让、隐藏 PROGRAM/CLOCK 显示，几何检查无警告；已通过原生保存读回和 0.5 的实际运行/计时/日志检查。
+- 无 MCU 的原生 LED 仿真包（本机生成记录，不随源码分发）及 实际运行结果（本机生成记录，不随源码分发）：真实引擎运行 0.25 秒仿真时间，日志无错误/警告，源工程未改动。
+
+两个运行工程需要保留旁边的 `output/firmware/blink8051.hex`。源码为 [blink8051.a51](examples/blink8051.a51)，随附编译好的 HEX，无需 Keil 即可生成和运行这些示例。重新生成独立副本：
 
 ```powershell
 python scripts\create_runtime_examples.py --output-dir output\runtime_demo_new
@@ -46,7 +56,7 @@ c.save("output/polished.pdsprj")
 
 `set_property_visibility` 使用 Proteus 原生的属性显示语法，值和模型参数仍保留；设为 `True` 恢复显示。`tidy_labels` 在限定距离内避让符号、引脚、已有文字和真实导线，成对移动标号和值，保留元件、导线和网络。未找到位置的标号记录到 `c.label_report['unresolved']`，外观不足不会静默修改电路拓扑。
 
-## 安装 Codex 技能
+## 安装平台技能
 
 在工具目录运行；安装脚本复制整个技能及 `references/`：
 
@@ -54,11 +64,14 @@ c.save("output/polished.pdsprj")
 python scripts/install_codex_skill.py
 # 只有明确更新已有安装时才覆盖：
 python scripts/install_codex_skill.py --update
+
+# DSH 使用相同技能、引用文件及可恢复安装流程。
+python scripts/install_dsh_skill.py --update
 ```
 
 目标为 `CODEX_HOME/skills/proteus86-files`（未指定 `CODEX_HOME` 时用当前用户的 `.codex`）。更新前核对旧树并在 `CODEX_HOME/skill-backups/` 创建完整可恢复备份，备份不放入技能自动扫描目录。源文件在复制中变化、目标并发变化或中断时拒绝半安装；保留用户无关配置，恢复被系统锁阻止时保留原树和备份并报告路径。强制结束 Python 或断电无法执行回滚。
 
-安装后的 `.proteus86-install.json` 含本机 `checkout_root`，用于定位工具，不应进入源码发行。技能目录不包含 Python 运行库。其他 harness 需自行适配和验证，安装该技能不等于已经支持其他 harness。
+安装后的 `.proteus86-install.json` 含本机 `checkout_root`，用于定位工具，不应进入源码发行。技能目录不包含 Python 运行库。Codex 与 dsh 安装时各自加入短平台入口，公共引用文件相同；除此之外的 harness 仍需自行适配和验证。
 
 ## 器件清单与网络表
 
@@ -217,7 +230,7 @@ python examples\draw_8051_neat.py --output-dir output\neat_8051_new
 
 脚本生成独立的 `before.pdsprj`、`after.pdsprj`、资源、SVG 和文件检查记录，不启动软件。`--source PATH` 可整理相同编号/型号的原始 25 元件示例；其他电路应使用模块接口或自己的排版规则，脚本会在修改前拒绝不匹配的器件集合。方向根据真实引脚出口选择，新生成与已读取的模板均可处理；重复应用排版不会漂移。
 
-0.8.2 的布局/原生结果属于[历史验收](skills/proteus86-files/references/history.md)。旧截图与工程副本不随源码分发；新布局需要自己的检查。
+0.8.2 明确排版示例零叠线、零非结点交叉，33/44 条导线为直线，总折弯 23 个。其原生网表、属性以及保存/重读的几何一致；历史原生显示截图（本机生成记录，不随源码分发）与工程副本（本机生成记录，不随源码分发）可查看。为拉开间距，总线长由上一版 997.0 增至 1344.98 mm；优先清晰，未声称最短线。移动工程时保留整个目录及资源，新布局仍需自己的检查。
 
 任意受支持的已保存工程可单独检查线距，无需启动 Proteus：
 
@@ -314,7 +327,7 @@ WTS 检出锁定/断开的桌面会在截图前拒绝。捕获图中必须识别
 
 `control_state('B1')` 是按钮位置，不是下游电压。输出观测需在生成时添加并接好 **LOGICPROBE**，然后 `sim.observe(['P0', ...])`。工具暂停、用原生 SDF 导出器读取探针 STATE、确认前后引擎计时一致，再恢复此前运行状态。只接受明确的 0/1，未知或非二态值不当作有效测量。LED 逻辑可按其已知接法由探针推断，例如本例阳极接 VCC 的 LED 为低有效；探针不测 LED 光强或电流。
 
-下面展示场景 API 的调用方式；输入应是你准备并保存的、含 B1/P0–P7 及匹配固件的电路，期望字与时序应按该电路独立设定。历史 30 元件运行包不分发。完整独立矩阵复现优先使用下文公开验证脚本。
+以下例子可使用随验收保存的 30 元件电路（本机生成记录，不随源码分发），含 B1、P0–P7 和独立计数固件：
 
 ```python
 from proteus86 import Simulation, Scenario
@@ -435,7 +448,7 @@ python -m proteus86 generate output\converted.txt -o output\converted86.pdsprj
 
 | 0.9.1 范围 | 当前结果与边界 |
 |---|---|
-| 完整回归 | `python -m unittest discover -s tests -v`：295 项全通过、0 跳过，120.379 s。最终本机证据见 [本轮脱敏记录](docs/validation/v0.9.1.json)；不代表 295 次原生仿真。 |
+| 完整回归 | `python -m unittest discover -s tests -v`：295 项全通过、0 跳过，120.379 s。最终本机证据见 `artifacts/validation_v091.json`；不代表 295 次原生仿真。 |
 | 公开候选回归 | 独立运行同样 295 项，2 项可选私有 fixture 检查跳过，其余通过，0 失败/错误，120.654 s；与本机 0 跳过的完整结果分别报告。 |
 | 公开 CLI 原生动态 | 实际通过 16 键 5/5/5/1 顺序分组、25 次显示重建、658 个原生 SDF 样本、118 次输入状态回读。显示/有限保持单次响应及 K0 短脉冲/抖动拒绝、释放重按通过；四个自有进程正常关闭、源文件不变。 |
 | 原生运行截图 | 图前 0.372412 秒、图后 0.422412 秒、暂停 0.472412 秒，主画布非空，目视初始 `01234567`，诊断零错误/警告。图像本身不代替数字功能断言。 |
@@ -445,7 +458,7 @@ python -m proteus86 generate output\converted.txt -o output\converted86.pdsprj
 | 启动中断清理 | 11 项专项回归及两个真实 PDS 受控 KeyboardInterrupt 清理检查通过；仅清理本次 Popen、原中断重抛，记录仍 interrupted/unpassed。没有运行电路，不能计作仿真成功。 |
 | 可选截图依赖 | `Pillow>=11.2.1` 与明确的 `ImageGrab.grab(window=...)` 能力校验；文件模式不导入 Pillow、不回退截取整个桌面。 |
 
-本轮完整结果见 [0.9.1](docs/release-0.9.1.md)及 [本轮脱敏记录](docs/validation/v0.9.1.json)。旧版说明、ZIP 与 `validation_v09.json` 保留不变，见[历史范围](skills/proteus86-files/references/history.md)。历史课程换向/调速未重测，未知实体格式及 native PID/profile/时钟保护保留。公开候选验收与实际发布授权分别记录。
+本轮完整结果见 [0.9.1](docs/release-0.9.1.md)及 `artifacts/validation_v091.json`。旧版说明、ZIP 与 `validation_v09.json` 保留不变，见[历史范围](skills/proteus86-files/references/history.md)。历史课程换向/调速未重测，未知实体格式及 native PID/profile/时钟保护保留。公开候选验收与私有同步按各自实际执行记录报告。
 
 文件生成的配对测量使用独立 Python 3.12.14 环境：同一当前核心、模板和显式固件，32/48 元件每种旧/新例程策略各三次、共 12 次交错生成，完整模型/网络/固件一致。结果为：
 
@@ -454,7 +467,7 @@ python -m proteus86 generate output\converted.txt -o output\converted86.pdsprj
 | 32 元件 | 1.89940 s | 1.62266 s | 14.57% |
 | 48 元件 | 2.28485 s | 1.95703 s | 14.35% |
 
-计时覆盖例程 `generate()` 的布线、保存、重读、检查、预览和结果写入；独立的等价性比较在计时之外。它比较相同核心下的例程布局策略，不是版本间通用核心、任意电路或原生仿真的性能保证。证据为 [描述性布局策略基准](docs/validation/v0.9.1.json)。
+计时覆盖例程 `generate()` 的布线、保存、重读、检查、预览和结果写入；独立的等价性比较在计时之外。它比较相同核心下的例程布局策略，不是版本间通用核心、任意电路或原生仿真的性能保证。证据为 `artifacts/skill-v091-followup-20261028-3c78b0/paired-generation-r3-20261028/result.json`。
 
 文件性能可运行 `python scripts/benchmark_files.py --repeat 3`，生成到新 D 盘目录，包含核网和源文件保护。常规回归、文件基准不启动 Proteus。需要实际原生兼容/仿真时，按相关脚本的 `--help` 选择独立新输出并配置英文 D 盘 TEMP；游戏期间不运行，只关闭本次自有进程。截图和 SDF 对话框可能短暂显示。
 
@@ -464,7 +477,7 @@ python -m proteus86 generate output\converted.txt -o output\converted86.pdsprj
 
 `python -m proteus86 diagnose input.pdsprj` 只读检查 ZIP、CDB 版本、保存版本及已知记录保护，输出分类、具体 guard、来源哈希和转换步骤；可读返回 0，不支持返回 1。`Circuit.open()` 的格式异常也附带 `.diagnostic`。部分实体/组件证据只用于定位，不能作为完整解析或绕过保护的依据。
 
-历史两份外部只读参考副本得到以下诊断；这些私有输入和原始运行记录不分发：
+历史两份外部参考副本的实测结果见 诊断与原生另存记录（本机生成记录，不随源码分发）：
 
 | 参考 | 具体原因 | 本机转换结果与下一步 |
 |---|---|---|
@@ -475,7 +488,7 @@ python -m proteus86 generate output\converted.txt -o output\converted86.pdsprj
 
 可行流程是先复制工程。在可打开它的 Proteus 中为匿名按钮分配唯一编号、检查 U1 的 PROGRAM 等路径，复制外置固件并绑定英文相对路径，然后原生另存并重新 `diagnose`。嵌入式 VSM Studio 的构建配置需在原生副本中明确处理为外置固件，工具不执行它。若仍有不支持对象，则原生导出逻辑 SDF，明确提供器件/编号映射（例如 `BUTTON#005B`→`B1`），用本机已支持器件重建新图，再比较原生网表；重建不承诺保留原排版/注释。8.11 工程的导出步骤需要 8.11 或更高版本。没有猜测未知结构、删除原对象字节或修改原始资料。
 
-`python scripts/diagnose_references.py --reference-root 你自己的参考目录` 执行只读诊断；明确加 `--native` 才在本项目 `artifacts/` 创建副本并原生另存。它不运行参考工程固件或构建脚本，不写原始资料目录。
+`python scripts/diagnose_references.py` 复现只读诊断；明确加 `--native` 才在本项目 `artifacts/` 创建副本并原生另存。它不运行参考工程固件或构建脚本，不写原始资料目录。
 
 ## 兼容与安装
 
@@ -500,4 +513,4 @@ python -m proteus86 --install 'D:\Program Files (x86)\Labcenter Electronics\Prot
 
 ## 干净源码发行补充
 
-两个旧独立固件现可用自有 Python 汇编器重建，全部程序地址/字节与随附 HEX 一致；两个上游已固定到逐文件核对的提交。新增构建与来源核对没有运行 Proteus，不改写原生验收、原固件或旧记录。独立新仓库使用无父初始提交，原私有仓库保留。当前保持私有，公开仍需后续授权。详见 [本轮补充](docs/clean-source-preparation.md)。
+两个旧独立固件现可用自有 Python 汇编器重建，全部程序地址/字节与随附 HEX 一致；两个上游已固定到逐文件核对的提交。新增构建与来源核对没有运行 Proteus，不改写原生验收、原固件或旧记录。此前已从审核源码建立无父初始提交的私有仓库；本次双平台版本沿用该仓库，原私有仓库仍保留。当前保持私有，公开仍需后续授权。详见 [本轮补充](docs/clean-source-preparation.md)。

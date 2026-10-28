@@ -1,7 +1,17 @@
-0.9.1 reviewed source candidate. Public release and repository-visibility changes remain unauthorized.
+0.9.2b1 reviewed dual-platform Beta candidate for the existing private repository.
+Public release and repository-visibility changes remain unauthorized.
 
-The workflow and installer target Codex; other AI harnesses need adaptation and independent validation.
+Codex and DeepSeek Harness share one core and structured dispatcher. Platform
+entries handle skill discovery, registration and harness integration separately.
+See docs/release-0.9.2-beta.1.md, docs/platform-parity.md and
+docs/validation/release-v092b1-20261028.json for exact validation boundaries.
 
-Root regressions passed 295 tests with zero skips (120.379 s). The independent public candidate ran 295 tests: zero failures/errors, two optional private-fixture skips, all remaining tests passed (120.654 s). Current public CLI native verification passed 16 sequential keys in 5/5/5/1 groups, 25 reconstructed displays, 658 SDF samples and 118 actuator readbacks. Current running capture and both 32/48 editor roundtrips passed with owned-process closure and source protection. See docs/validation/v0.9.1.json for exact scopes and distinct test/native/benchmark environments.
+The packaging phase is file-only: no new native Proteus run, desktop interaction
+or service restart. Previous source-level native/model results remain bound to
+their recorded runs; installed-wheel native acceptance and DSH Web interaction
+remain pending. Earlier failed evidence is not relabelled passed.
 
-This source boundary excludes private coursework/firmware/reports, machine-local installation manifests, raw runs, screenshots, Proteus binaries/libraries/templates, and private Git history. Earlier 0.9.0 source/ZIP/evidence remain unchanged. Delivery/archive/installation status is maintained outside the public source to avoid circular hashes.
+Only reviewed source, independent examples, tests and notices are distributed.
+Private coursework/firmware/reports, credentials, local install manifests, raw
+runs, screenshots and vendor binaries/libraries/models/templates are excluded.
+Package checksums and delivery status are maintained outside the source tree.

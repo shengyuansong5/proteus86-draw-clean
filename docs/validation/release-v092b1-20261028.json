@@ -1,0 +1,135 @@
+{
+  "version": "0.9.2b1",
+  "date": "2026-10-28",
+  "passed": true,
+  "status": "private_beta_candidate_ready",
+  "root_regressions": {
+    "tests": 332,
+    "passed": 331,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 164.246,
+    "skip_details": [
+      {
+        "test": "test_actual_private_native32_fixture_when_explicitly_configured (test_native_entity_extension.NativeEntityExtensionTests)",
+        "reason": "Optional private native-save reproduction is not distributed"
+      }
+    ],
+    "native_launch_forbidden": true,
+    "successful": true
+  },
+  "reviewed_source_regressions": {
+    "tests": 332,
+    "passed": 330,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 157.981,
+    "skip_details": [
+      {
+        "test": "test_actual_private_native32_fixture_when_explicitly_configured (test_native_entity_extension.NativeEntityExtensionTests)",
+        "reason": "Optional private native-save reproduction is not distributed"
+      },
+      {
+        "test": "test_actual_teacher_reference_diagnostics_are_read_only (test_resources_diagnostics.ResourcesDiagnosticsTests)",
+        "reason": "Optional private reference fixtures not configured"
+      }
+    ],
+    "native_launch_forbidden": true,
+    "successful": true
+  },
+  "wheel": {
+    "filename": "proteus86_draw-0.9.2b1-py3-none-any.whl",
+    "bytes": 200216,
+    "runtime_required_dependencies": 0,
+    "canonical_supporting_sources_byte_identical": true,
+    "unreviewed_helpers_excluded": true,
+    "vendor_assets_excluded": true,
+    "network_used": false,
+    "build_python": "3.12.14"
+  },
+  "installed_wheel_file_check": {
+    "passed": true,
+    "python": "3.10.11",
+    "isolated_mode": true,
+    "wheel_imports_outside_checkout": true,
+    "unique_support_namespace": true,
+    "console_entry_loads": true,
+    "real_MCP_file_preparation_passed": true,
+    "generated_parts": 48,
+    "expected_nets": 29,
+    "group_sizes": [
+      5,
+      5,
+      5,
+      1
+    ],
+    "native_launch_forbidden": true,
+    "native_guard_rejected": true,
+    "native_runner_called": false,
+    "simulation_executed": false,
+    "source_checkout_support_imported": false,
+    "network_used": false
+  },
+  "current_phase_native_simulation_executed": false,
+  "current_phase_desktop_interaction": false,
+  "current_phase_service_restarts": 0,
+  "regression_process_priority": "Idle",
+  "regression_affinity_cores": 1,
+  "original_core_modules_byte_identical": 35,
+  "core_version_only_change": true,
+  "matrix_verifier_function_bodies_AST_identical": true,
+  "independent_firmware_and_provenance_unchanged": true,
+  "source_review": {
+    "explicit_allowlist": true,
+    "privacy_patterns_checked": true,
+    "vendor_and_private_assets_excluded": true,
+    "static_checks_not_absolute_privacy_or_legal_guarantee": true
+  },
+  "previous_source_native_model_evidence": "dsh-parity-20261028.json",
+  "prior_native_evidence_not_relabelled_as_installed_wheel_acceptance": true,
+  "preserved_failed_preflight_checks": [
+    "Initial regression-runner Popen guard was incompatible with asyncio import; no native launch.",
+    "First supporting-loader unit test assertion crossed mock module restoration; corrected test and reran full suite."
+  ],
+  "known_pending": [
+    "Installed-wheel native simulation not rerun during gaming.",
+    "DSH Web page interaction remains unverified.",
+    "DSH built-in Windows shell ACL failure is separate and not fixed by MCP."
+  ],
+  "distribution_scope": "Reviewed source, independent examples, common wheel and two thin platform installation entries; existing private repository only.",
+  "public_release_or_visibility_change_authorized": false,
+  "platform_archive_installations": {
+    "codex": {
+      "passed": true,
+      "fresh_archive_extraction": true,
+      "installed_reference_files": {
+        "references/bridge.md": "2a0f991bcc7c3a3b44696e877b9f283187f55e45bc288d3b55b96b6c2a26a666",
+        "references/digital.md": "0a5177c94fd4757c6b344c523526c58d84781e23a4ce12c0b4df8c8c14bccfd2",
+        "references/file-workflow.md": "fc66b19ea2ae5ab943d086a525a5208474f498ee510dd55acf83790e3f78d79d",
+        "references/history.md": "41634ea915870c345a5a0c64404c6669d330875c76b1ae555c2ae59205ba8402",
+        "references/matrix-example.md": "ba7412c6f2f2ae4f6aabd1a4238af79859615972f602b8441cea1b88033fb7e6",
+        "references/native.md": "6a697e8b45fd6b2816238d42974fcac91abe1898e8761edf2e7c78510aaa0830"
+      },
+      "platform_skill_sha256": "0a9c36225dfb2aa7b75dd5ed649497a79ff061d1e987e8745bb8ec6f1519353d",
+      "local_manifest_not_distributed": true
+    },
+    "dsh": {
+      "passed": true,
+      "fresh_archive_extraction": true,
+      "installed_reference_files": {
+        "references/bridge.md": "2a0f991bcc7c3a3b44696e877b9f283187f55e45bc288d3b55b96b6c2a26a666",
+        "references/digital.md": "0a5177c94fd4757c6b344c523526c58d84781e23a4ce12c0b4df8c8c14bccfd2",
+        "references/file-workflow.md": "fc66b19ea2ae5ab943d086a525a5208474f498ee510dd55acf83790e3f78d79d",
+        "references/history.md": "41634ea915870c345a5a0c64404c6669d330875c76b1ae555c2ae59205ba8402",
+        "references/matrix-example.md": "ba7412c6f2f2ae4f6aabd1a4238af79859615972f602b8441cea1b88033fb7e6",
+        "references/native.md": "6a697e8b45fd6b2816238d42974fcac91abe1898e8761edf2e7c78510aaa0830"
+      },
+      "platform_skill_sha256": "5f67eddfd2a816d202181be9459e1a349a17af26bf1e170d8b02de256f6d4a85",
+      "local_manifest_not_distributed": true
+    }
+  },
+  "platform_shared_resources_byte_identical": true,
+  "platform_entries_intentionally_distinct": true
+}
