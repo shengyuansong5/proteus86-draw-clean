@@ -283,7 +283,7 @@ def main():
     parser.add_argument('--output-dir', type=Path, required=True)
     parser.add_argument('--temp-dir', type=Path, required=True)
     parser.add_argument('--runtime-record', '--speed-record', dest='speed_record', type=Path,
-                        default=ROOT / 'docs/validation/v0.8.3.json',
+                        default=ROOT / 'docs/validation/v0.9.1.json',
                         help='Acceptance manifest for this exact runtime; historical manifests are preserved')
     args = parser.parse_args()
     source_root = args.source_root.resolve()
