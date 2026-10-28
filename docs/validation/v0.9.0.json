@@ -1,0 +1,838 @@
+{
+  "version": "0.9.0",
+  "prepared_at_utc": "2026-10-28T05:23:19.815504+00:00",
+  "record_kind": "scoped_release_validation",
+  "status": "completed_for_stated_scope",
+  "passed": true,
+  "current_candidate_final_acceptance": true,
+  "scope": "Completed source/file, owned editor, native capture and independent matrix digital checks; only the explicitly stated build/profile/scenario scope is certified.",
+  "development_workspace_regressions": {
+    "status": "passed",
+    "tests_run": 234,
+    "skipped": 0,
+    "passed": true,
+    "seconds": 54.297
+  },
+  "public_candidate_file_regressions": {
+    "status": "passed",
+    "passed": true,
+    "tests_run": 234,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 54.926,
+    "optional_private_reference_configured": false,
+    "optional_private_native32_configured": false,
+    "source_record_sha256": "1d751530b73b039f449afede34ee185e5239a61b07f37ea6928886c50ab277eb",
+    "scope": "Full file/offline candidate unittest suite; no private fixture distribution or native simulation claim"
+  },
+  "native_editor_roundtrips": {
+    "status": "passed",
+    "passed": true,
+    "source_record_sha256": "00d82ff1894af0afa211b12c85b12218909af4ea8e86dc4fe7eef667d6f5edcc",
+    "simulation_executed": false,
+    "cases": [
+      {
+        "name": "native32",
+        "passed": true,
+        "phases": [
+          {
+            "name": "native_save",
+            "passed": true,
+            "native_netlist": {
+              "parts": 32,
+              "explicit_nets": 29,
+              "native_nets": 39,
+              "passed": true
+            },
+            "components": 32,
+            "topology_equal": true,
+            "netcheck": {
+              "passed": true,
+              "expected_nets": 29,
+              "actual_nets": 39,
+              "errors": []
+            },
+            "graceful_close": true,
+            "process_closed": true
+          },
+          {
+            "name": "fresh_native_reopen",
+            "passed": true,
+            "native_netlist": {
+              "parts": 32,
+              "explicit_nets": 29,
+              "native_nets": 39,
+              "passed": true
+            },
+            "full_native_pin_partition_and_properties_equal": true,
+            "components": 32,
+            "topology_equal": true,
+            "netcheck": {
+              "passed": true,
+              "expected_nets": 29,
+              "actual_nets": 39,
+              "errors": []
+            },
+            "graceful_close": true,
+            "process_closed": true
+          }
+        ],
+        "source_unchanged": true
+      },
+      {
+        "name": "matrix48_saved",
+        "passed": true,
+        "phases": [
+          {
+            "name": "native_save",
+            "passed": true,
+            "native_netlist": {
+              "parts": 48,
+              "explicit_nets": 29,
+              "native_nets": 39,
+              "passed": true
+            },
+            "components": 48,
+            "topology_equal": true,
+            "netcheck": {
+              "passed": true,
+              "expected_nets": 29,
+              "actual_nets": 39,
+              "errors": []
+            },
+            "graceful_close": true,
+            "process_closed": true
+          },
+          {
+            "name": "fresh_native_reopen",
+            "passed": true,
+            "native_netlist": {
+              "parts": 48,
+              "explicit_nets": 29,
+              "native_nets": 39,
+              "passed": true
+            },
+            "full_native_pin_partition_and_properties_equal": true,
+            "components": 48,
+            "topology_equal": true,
+            "netcheck": {
+              "passed": true,
+              "expected_nets": 29,
+              "actual_nets": 39,
+              "errors": []
+            },
+            "graceful_close": true,
+            "process_closed": true
+          }
+        ],
+        "source_unchanged": true
+      }
+    ],
+    "owned_process_count": 4,
+    "all_owned_processes_gracefully_closed": true,
+    "scope": "Final 32/48 component editor save/Python-reopen/fresh-native-reopen/full-SDF partitions and properties; no dynamic simulation claim"
+  },
+  "firmware_rebuild": {
+    "status": "passed",
+    "program_bytes": 235,
+    "source_record": "docs/provenance/matrix-firmware.json",
+    "pure_python": true,
+    "decoded_addresses_and_bytes_equal": true,
+    "native_simulation_executed": false
+  },
+  "matrix_native_dynamic": {
+    "status": "passed",
+    "passed": true,
+    "native_run_completed": true,
+    "backend": "proteus_native_sdf",
+    "source_summary_sha256": "481f203bb53ba99c60ba7864881c3635d725d167d6445142bc3a7d540571f407",
+    "source_raw_record_sha256": "ae992f54f783231bd4664a901f2601b7bdf2e3bcd5a2d160788166456961743a",
+    "cases_completed": 16,
+    "groups": [
+      {
+        "controls": [
+          "K0",
+          "K1",
+          "K2",
+          "K3",
+          "K4"
+        ],
+        "passed": true,
+        "process_closed": true,
+        "forced_owned_cleanup": false
+      },
+      {
+        "controls": [
+          "K5",
+          "K6",
+          "K7",
+          "K8",
+          "K9"
+        ],
+        "passed": true,
+        "process_closed": true,
+        "forced_owned_cleanup": false
+      },
+      {
+        "controls": [
+          "K10",
+          "K11",
+          "K12",
+          "K13",
+          "K14"
+        ],
+        "passed": true,
+        "process_closed": true,
+        "forced_owned_cleanup": false
+      },
+      {
+        "controls": [
+          "K15"
+        ],
+        "passed": true,
+        "process_closed": true,
+        "forced_owned_cleanup": false
+      }
+    ],
+    "reconstructions": 25,
+    "native_sdf_samples": 670,
+    "minimum_agreeing_complete_scan_frames": 2,
+    "atomic_instantaneous_frame": false,
+    "all_recorded_input_states_native_and_binary": true,
+    "native_actuator_state_readbacks": 118,
+    "hold_before_full_display_check_seconds": [
+      0.08,
+      0.12
+    ],
+    "k0_additional_checks": {
+      "short_pulse_seconds": 0.003,
+      "rejected": true,
+      "bounce_rounds": 3,
+      "bounce_seconds": [
+        0.002,
+        0.003
+      ],
+      "bounce_rejected": true,
+      "stable_release_and_repress_count_sequence": [
+        1,
+        2
+      ]
+    },
+    "all_case_diagnostics_passed": true,
+    "diagnostic_error_count": 0,
+    "diagnostic_warning_count": 0,
+    "all_owned_processes_closed": true,
+    "source_unchanged": true,
+    "cases": [
+      {
+        "ref": "K0",
+        "passed": true,
+        "before": 0.22,
+        "after": 1.234693,
+        "expected_display": "01234520",
+        "phases": [
+          {
+            "phase": "initial",
+            "text": "01234567",
+            "samples": 26,
+            "native_window": [
+              0.22,
+              0.272412
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "short_pulse_rejected",
+            "text": "01234567",
+            "samples": 19,
+            "native_window": [
+              0.355412,
+              0.393221
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "bounce_rejected",
+            "text": "01234567",
+            "samples": 30,
+            "native_window": [
+              0.488221,
+              0.549035
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234510",
+            "samples": 41,
+            "native_window": [
+              0.749035,
+              0.833055
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "stable_release",
+            "text": "01234510",
+            "samples": 21,
+            "native_window": [
+              0.913055,
+              0.955065
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "second_press_after_release",
+            "text": "01234520",
+            "samples": 37,
+            "native_window": [
+              1.035065,
+              1.110683
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "second_stable_release",
+            "text": "01234520",
+            "samples": 22,
+            "native_window": [
+              1.190683,
+              1.234693
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K1",
+        "passed": true,
+        "before": 1.254693,
+        "after": 1.622914,
+        "expected_display": "01234531",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234531",
+            "samples": 43,
+            "native_window": [
+              1.454693,
+              1.542914
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K2",
+        "passed": true,
+        "before": 1.642914,
+        "after": 1.985929,
+        "expected_display": "01234542",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234542",
+            "samples": 31,
+            "native_window": [
+              1.842914,
+              1.905929
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K3",
+        "passed": true,
+        "before": 2.005929,
+        "after": 2.348944,
+        "expected_display": "01234553",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234553",
+            "samples": 31,
+            "native_window": [
+              2.205929,
+              2.268944
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K4",
+        "passed": true,
+        "before": 2.368944,
+        "after": 2.703557,
+        "expected_display": "01234564",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234564",
+            "samples": 27,
+            "native_window": [
+              2.568944,
+              2.623557
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K5",
+        "passed": true,
+        "before": 0.22,
+        "after": 0.615427,
+        "expected_display": "01234515",
+        "phases": [
+          {
+            "phase": "initial",
+            "text": "01234567",
+            "samples": 26,
+            "native_window": [
+              0.22,
+              0.272412
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234515",
+            "samples": 31,
+            "native_window": [
+              0.472412,
+              0.535427
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K6",
+        "passed": true,
+        "before": 0.635427,
+        "after": 0.97004,
+        "expected_display": "01234526",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234526",
+            "samples": 27,
+            "native_window": [
+              0.835427,
+              0.89004
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K7",
+        "passed": true,
+        "before": 0.99004,
+        "after": 1.324653,
+        "expected_display": "01234537",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234537",
+            "samples": 27,
+            "native_window": [
+              1.19004,
+              1.244653
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K8",
+        "passed": true,
+        "before": 1.344653,
+        "after": 1.675065,
+        "expected_display": "01234548",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234548",
+            "samples": 25,
+            "native_window": [
+              1.544653,
+              1.595065
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K9",
+        "passed": true,
+        "before": 1.695065,
+        "after": 2.017075,
+        "expected_display": "01234559",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "01234559",
+            "samples": 21,
+            "native_window": [
+              1.895065,
+              1.937075
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K10",
+        "passed": true,
+        "before": 0.22,
+        "after": 0.602824,
+        "expected_display": "0123451A",
+        "phases": [
+          {
+            "phase": "initial",
+            "text": "01234567",
+            "samples": 26,
+            "native_window": [
+              0.22,
+              0.272412
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "0123451A",
+            "samples": 25,
+            "native_window": [
+              0.472412,
+              0.522824
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K11",
+        "passed": true,
+        "before": 0.622824,
+        "after": 0.940633,
+        "expected_display": "0123452B",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "0123452B",
+            "samples": 19,
+            "native_window": [
+              0.822824,
+              0.860633
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K12",
+        "passed": true,
+        "before": 0.960633,
+        "after": 1.274241,
+        "expected_display": "0123453C",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "0123453C",
+            "samples": 17,
+            "native_window": [
+              1.160633,
+              1.194241
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K13",
+        "passed": true,
+        "before": 1.294241,
+        "after": 1.616251,
+        "expected_display": "0123454D",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "0123454D",
+            "samples": 21,
+            "native_window": [
+              1.494241,
+              1.536251
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K14",
+        "passed": true,
+        "before": 1.636251,
+        "after": 1.968663,
+        "expected_display": "0123455E",
+        "phases": [
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "0123455E",
+            "samples": 26,
+            "native_window": [
+              1.836251,
+              1.888663
+            ],
+            "stable_frames": 2
+          }
+        ]
+      },
+      {
+        "ref": "K15",
+        "passed": true,
+        "before": 0.22,
+        "after": 0.602824,
+        "expected_display": "0123451F",
+        "phases": [
+          {
+            "phase": "initial",
+            "text": "01234567",
+            "samples": 26,
+            "native_window": [
+              0.22,
+              0.272412
+            ],
+            "stable_frames": 2
+          },
+          {
+            "phase": "accepted_press_and_long_hold_single_response",
+            "text": "0123451F",
+            "samples": 25,
+            "native_window": [
+              0.472412,
+              0.522824
+            ],
+            "stable_frames": 2
+          }
+        ]
+      }
+    ],
+    "limitations": [
+      "Four independent groups, not simultaneous 16-key control.",
+      "Each reported display is reconstructed across a native sampling window, not an instantaneous atomic frame.",
+      "Inputs and sampled outputs are digital; no voltage/current/brightness or physical-hardware measurement.",
+      "Only K0 has the additional pulse/bounce/release-repress sequence; no course direction/speed program was retested.",
+      "Intersample events can be missed. Earlier cancelled/partial attempts remain unpassed."
+    ]
+  },
+  "native_capture": {
+    "locked_desktop_refusal": "verified_guarded_failure",
+    "successful_capture": "passed",
+    "image_distributed": false,
+    "passed": true,
+    "backend": "proteus_native_window",
+    "source_record_sha256": "f2be1fc3c83f04cfece30dc1d38bda21b0abdc42843db1a11d520d19b70f261c",
+    "initial_seconds": 0.22,
+    "before_image_seconds": 0.27,
+    "after_image_seconds": 0.37,
+    "paused_after_seconds": 0.37,
+    "schematic_canvas_nonblank": true,
+    "errors": 0,
+    "warnings": 0,
+    "process_closed": true,
+    "digital_function_verified": false
+  },
+  "file_benchmark": {
+    "status": "completed",
+    "source_record_sha256": "357eb7fe377e9250ed3320b5bb59fc00a0d7924efeb44f76803980f02c070273",
+    "repeats_per_case": 3,
+    "cases": 2,
+    "subprocess_launch_blocked": true,
+    "medians_seconds": {
+      "mcu_complex": {
+        "generation_seconds": 0.6272,
+        "pipeline_seconds": 0.9635,
+        "edit_save_check_seconds": 0.2061
+      },
+      "controller_complex": {
+        "generation_seconds": 6.24,
+        "pipeline_seconds": 6.8773,
+        "edit_save_check_seconds": 0.4009
+      }
+    },
+    "scope": "Single-machine file generation/save/reopen/netcheck/edit/source-preservation; no speedup comparison or native simulation timing claim"
+  },
+  "native_normal_simulation_log": {
+    "status": "passed",
+    "entries": 6,
+    "errors": 0,
+    "warnings": 0,
+    "raw_paths_or_entries_distributed": false
+  },
+  "code_manifest": [
+    {
+      "path": "proteus86/__init__.py",
+      "sha256": "6f644d557419820bab29d00985ee41df492e70d3b1f349364c84685d98969e4f"
+    },
+    {
+      "path": "proteus86/__main__.py",
+      "sha256": "a65d48d940d046b8ec6dc842d70544789582b98e5b8c61e00b4ac492ddad4c2c"
+    },
+    {
+      "path": "proteus86/_codec/__init__.py",
+      "sha256": "1687154676b930b4086c03e0aeed5d4c838ef7ec1bd4d7f7d394aa49097f8b1d"
+    },
+    {
+      "path": "proteus86/_codec/component_codec.py",
+      "sha256": "9fa889e5820eb8985d8969d79af128322f6f442ea8e5050ef711079eaf84afbf"
+    },
+    {
+      "path": "proteus86/_codec/device_library.py",
+      "sha256": "7cd0451591047fc5d045498a92c1cef6354b39d9a5ee315f6f77edc7f11a2eec"
+    },
+    {
+      "path": "proteus86/_codec/net_edit.py",
+      "sha256": "f847194ee3c34c056815f6338fb4d6d38de904f69f45b88c4000c108ce09ac12"
+    },
+    {
+      "path": "proteus86/_codec/net_objects.py",
+      "sha256": "80405b72694cf59576a972f2d03b5e14329048470843042d70ed6daf672e1c9e"
+    },
+    {
+      "path": "proteus86/_codec/pin_geometry.py",
+      "sha256": "7adc84ebfdadfbbd3d0e6812e5b3cd5717555ec66c289c5d14e11057400f1708"
+    },
+    {
+      "path": "proteus86/_codec/proteus_native.py",
+      "sha256": "1793ade34d46c86ac02384f447a25158a143890900416dabaabc3ac75fbba375"
+    },
+    {
+      "path": "proteus86/_codec/proteus_project.py",
+      "sha256": "50cdbafaf0c137b83c837e45403a3e21b34ca1a9ab9bbfcc468b2e65ba30d534"
+    },
+    {
+      "path": "proteus86/_codec/proteus_session.py",
+      "sha256": "33da8aa37fd3519e66b5d931df519c44640d3bfd687c95661d7d8516581d9990"
+    },
+    {
+      "path": "proteus86/_codec/wire_codec.py",
+      "sha256": "707a9fb7e3bfdb805c09da8527f9606751777031162ca2ec949295bcf50f9b4e"
+    },
+    {
+      "path": "proteus86/api.py",
+      "sha256": "253f8a87eef1ee7b4b73386b96c6ad88fccb30e91f504b3ce328d547ed95d531"
+    },
+    {
+      "path": "proteus86/capture.py",
+      "sha256": "0add289fbe3301758c435fc63f4264b6fedebb666cbbb4146e71930d547bac04"
+    },
+    {
+      "path": "proteus86/connectivity.py",
+      "sha256": "0ae027ee41d1eb6c4cd18c7fecc1cfcfd0fa70a9aa38bc0b99fcba141a474238"
+    },
+    {
+      "path": "proteus86/design.py",
+      "sha256": "e86c1fa33e50b83f178462eac440024d4ac8fc51817f2e3d66c7d2ab2025a4df"
+    },
+    {
+      "path": "proteus86/diagnostics.py",
+      "sha256": "e95077d60707cdcfbcf4c18d669f9cc12bcefeb26cbba505f6b5fc7939b26be1"
+    },
+    {
+      "path": "proteus86/digital.py",
+      "sha256": "0900a0cd1c22ffea62e8a2b686d9431cb1166bccfa13e4f5f2e2afabee02e43c"
+    },
+    {
+      "path": "proteus86/firmware.py",
+      "sha256": "67555a7b4b914525e608a59d8e07571c00595f6e6b0c4f3a3b4513724f7d3c6e"
+    },
+    {
+      "path": "proteus86/geometry.py",
+      "sha256": "8ba8da7165eab6ab05824e45fcc6a298df6ae5504e7c138e105effedaf6b18b9"
+    },
+    {
+      "path": "proteus86/inspection.py",
+      "sha256": "2b8d579c0900fba532b8d6e099b5b7c6f879cac81bc5836cf1b8fb4eaaa5c42b"
+    },
+    {
+      "path": "proteus86/installation.py",
+      "sha256": "303cea5d39b82bc8f5af65e711a7c836386c8180c644833883a326846cb6892d"
+    },
+    {
+      "path": "proteus86/interactions.py",
+      "sha256": "8c6bbdc882b7e366864aacc8ec10f785532524146d35bc1ec7a4225d02a88862"
+    },
+    {
+      "path": "proteus86/layout.py",
+      "sha256": "fdbe6e5ee16dac01cb72e7e08f61674da0a38cf1716c7c1b156e4b88a74b38d8"
+    },
+    {
+      "path": "proteus86/native_simulation.py",
+      "sha256": "a8f3b53ed820c1deb8d6a6de862f1d2192244ac7c737b0660ab71dda7fa5a796"
+    },
+    {
+      "path": "proteus86/netlist.py",
+      "sha256": "53de9f1613f1b207996d3bc5c4f5060995984c3a3869209100713c7348134240"
+    },
+    {
+      "path": "proteus86/preview.py",
+      "sha256": "4058c317dcb32e3531c35d78c65ee631d414e5ec9dc49403a7cd648528eb1947"
+    },
+    {
+      "path": "proteus86/quality.py",
+      "sha256": "072abee064b863e5ff88d5e7762811ac5253057e4792d7d3f5ed713b13b09890"
+    },
+    {
+      "path": "proteus86/repair.py",
+      "sha256": "a1cde2eb862c71c99bb4af8c84c1f61b320c9e063186d00e9fff1b5b29ec623b"
+    },
+    {
+      "path": "proteus86/resources.py",
+      "sha256": "0ec4aee7b4834d488dad952459143bf61a3b08c8b26bcf04a1e27d525655740f"
+    },
+    {
+      "path": "proteus86/routing.py",
+      "sha256": "219fd28594cfc5e632aa60e4de38e5a3ddeeee2dcca9e1fb24af6269b5c9e0a6"
+    },
+    {
+      "path": "proteus86/scenario_runner.py",
+      "sha256": "891949ee5a87419e6de9dc6a3b5d190ccfd981c4e5d60caabf77cce0908e24af"
+    },
+    {
+      "path": "proteus86/scenarios.py",
+      "sha256": "0b730db4ebf8724ecf857494989ffe80e8247d034602723098a2dfd091755cf8"
+    },
+    {
+      "path": "proteus86/session.py",
+      "sha256": "5626715856b40e3848d27fecc8b33d7a079191a1243625e81c938428c25512c5"
+    },
+    {
+      "path": "proteus86/simulation.py",
+      "sha256": "7ecbb918f452f1d928743f96f734e07b4ebb063bade02b4a1876a67f8eb3ed4d"
+    },
+    {
+      "path": "proteus86/verification.py",
+      "sha256": "96414ea2305698783c6bd97615d1ac1ee68645ee45bd9fdcd669fa93726a3e0f"
+    }
+  ],
+  "code_manifest_scope": "Current candidate source inventory; not evidence that every module revision was exercised by every separately scoped earlier native check.",
+  "legacy_manifests_are_historical": true,
+  "old_code_byte_identity_claimed_for_current_candidate": false,
+  "private_reference_fixtures_distributed": false,
+  "private_repository_history_distributed": false,
+  "limitations": [
+    "All checks apply to the recorded Proteus 8.6 SP2 profile, independent firmware and exact stated scenarios, not arbitrary builds or circuits.",
+    "File/build checks, native editor checks, native dynamic sampling and screenshot capture have separate evidence scopes.",
+    "Two optional private-input tests were skipped in the public candidate; those inputs are not distributed.",
+    "Digital reconstruction spans sampling windows and is not simultaneous physical measurement.",
+    "Earlier locked/blank capture, menu-disabled and cancelled/partial native attempts remain failed and are not relabeled.",
+    "Proprietary programs/models/templates/screenshots, private inputs and raw machine paths are excluded."
+  ],
+  "finalized_at_utc": "2026-10-28T05:27:33.391597+00:00",
+  "integration_functional_projection_sha256": "6d4c0290ac6907ab3691d7c5cbca2246ec50881a86c1a194970f57cede3146c7",
+  "integration_functional_projection_scope": "Hash of functional fields only; excludes mutable archive/publication status and does not copy local paths or PIDs.",
+  "integration_passed": true
+}

@@ -1,0 +1,12 @@
+[parts]
+U1 AT89C52 AT89C52
+R1 RES 1k
+D1 LED-YELLOW LED-YELLOW
+
+[terms]
+VCC POWER
+
+[nets]
+U1.1,R1.2
+R1.1,D1.K
+D1.A,VCC

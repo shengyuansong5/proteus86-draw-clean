@@ -1,0 +1,10 @@
+{
+  "title": "Python RC - Proteus 8.6",
+  "units": "mm",
+  "components": [
+    {"device": "RESISTOR", "ref": "R1", "value": "10k", "x": 0, "y": 0},
+    {"device": "CAPACITOR", "ref": "C1", "value": "100n", "x": 25.4, "y": 0}
+  ],
+  "connections": [["R1.2", "C1.2"]],
+  "terminals": [{"kind": "ground", "name": "", "pin": "C1.1"}]
+}

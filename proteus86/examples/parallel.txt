@@ -1,0 +1,11 @@
+[parts]
+R1 RES 10k
+R2 RES 10k
+
+[terms]
+VCC POWER
+GND GROUND
+
+[nets]
+R1.1,R2.1,VCC
+R1.2,R2.2,GND

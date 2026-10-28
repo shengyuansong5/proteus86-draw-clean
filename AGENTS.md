@@ -1,0 +1,63 @@
+# Proteus 8.6 automation for Codex
+
+This tool, skill and default workflow target **Codex**. Other AI harnesses need their own skill loading, local execution, permissions/path integration and end-to-end validation; reusable Python APIs do not certify another harness.
+
+## Workflow and boundaries
+
+Read `skills/proteus86-files/SKILL.md`; load only the references needed for the current operation. Run from the checkout with Python 3.10+. Prefer `proteus86` saved-file APIs/CLI for adding, placing, wiring and inspecting. Use Computer Use only for a necessary UI action that those tools cannot perform. Group bulk edits in `with c.batch():` so routing runs once and failures/interruption restore in-memory state.
+
+Priority: functionality, stability, speed, then layout. Preserve requested nets/model values. Approximate cosmetic warnings must not block unrelated functional work. Prefer straight, separated wires and avoid overlaps; inspect geometry rather than claiming arbitrary optimal routing.
+
+The verified local format is Proteus 8.6 SP2 build 23525, CDB v5 / FILEVER 814 / RELEASE 806. Unknown sheet objects, multi-page/multi-unit designs and unrecognized entity payloads remain unsupported. Never alter version headers, guess binary layouts or bypass ASCII, pin-exit, orthogonal, native profile or ownership guards. Retain upstream MIT attribution in `_codec`.
+
+Save to a new destination unless overwrite is intended; `save(overwrite=True)` creates a checked backup. Never overwrite the base template. Treat course and teacher sources as read-only; conversions operate on new copies. Keep student submissions, reports, private firmware, personal identifiers and relocation inventories outside the source distribution. Do not redistribute local Proteus binaries, libraries or templates under the tool's MIT license.
+
+## Files, resources and routing
+
+Use `bind_firmware()` or high-level PROGRAM assignment for Unicode/space paths. Ordinary save copies hash-checked ASCII-relative firmware; packaging shares run preflight without launching Proteus. Move complete project/resource folders together. Only declared PROGRAM visibility may be deferred until assignment; typos and unknown properties still fail.
+
+Coordinates from `add_mm`/design `at` are millimetres; manual route/terminal positions use native integers (100000 per mm). Rotations are degrees. `add_terminal(rotation=None)` follows the actual pin exit; do not force every terminal to zero. Space probes according to actual exits/labels. The matrix example arranges labels before terminal corridors; its spacing is an example, not a universal model minimum. Terminal captions use public `terminal_label_position(id)`/`set_terminal_label_position(id, position)` with absolute signed-int32 native coordinates (100000/mm); `None` restores the current default anchor while retaining font/style. Read IDs from `terminals()`; do not edit private terminal dictionaries or confuse a caption anchor with its electrical contact.
+
+After connectivity changes save, reopen and `netcheck` expected nets. Changes to routing/serialization/layout also need native SDF consistency when native acceptance is required. File checks prove saved topology, not simulation or complete electrical correctness. `wire_quality()` is read-only drawing evidence, not a rerouter or electrical test. Flip an entire two-pin path to native pin-table order, never just endpoints or tolerate diagonals.
+
+For rejected imports run `diagnose`. Native re-save may retain unsupported objects. The 0.9.0 parser additionally preserves only the observed AT89C51RD2 2048-byte all-zero entity extension; do not infer its semantics or accept unknown lengths, contents or models. If Python still refuses, preserve the file and use owned native re-open/SDF comparison from `skills/proteus86-files/references/native.md`; native success does not authorize rewriting unknown Python structures.
+
+For the matrix example's selected AT89C51RD2 DIL40 package, native `PP(VCC)=40`/`PP(GND)=20` bind automatically. Do not add redundant terminal stubs to those two pads merely to satisfy file checks. Keep all 29 expected nets including pads 40/20. Logical partitions use verified PP declarations from the selected PACKAGE and matching complete pin mapping; `physical=True` remains explicit physical connectivity. Do not infer PP behavior from names alone or generalize this failure to every hidden pin/MCU. The example explicitly uses DEVICE/CAP; the controlled startup fix was removing the two redundant power stubs, not a demonstrated capacitor or 0V-reference defect.
+
+## Native verification
+
+Use `Simulation.open()`/`simulate` only for requested or necessary native verification. They create independent run bundles and own only newly launched processes. Never operate/close other PDS windows. During the user's game, do file work and defer native/UI runs. Keep task output, temp files and bytecode off C; use a D-drive workspace temp for file tests and an authorized ASCII D-drive temp for native runs.
+
+Require actual `simulation_seconds`, native readback, diagnostics and requested assertions. ANIMATING, `start()`, menu availability, wall time, firmware syntax/build or a screenshot alone are insufficient. Offline HEX execution is never native evidence. Native status remains bound to its initially unique main status widget; repeated control IDs do not authorize choosing another widget, and PID is checked on each read.
+
+`Simulation.capture()` defaults to `foreground=True`, restarts timed animation, verifies clock growth before/after the image and leaves paused. It rejects known locked/disconnected WTS sessions and uniform real main canvas content; toolbars/overview do not count. Only its owned window is captured. A passed image does not verify digit text, brightness, voltage or an atomic multiplexed frame. The 0.9.0 unlocked 48-component capture passed: actual times .22→.27→.37 seconds, nonblank main canvas, paused exit, zero diagnostic errors/warnings and owned-process closure; the image visibly showed initial 01234567. Keep the earlier locked-desktop rejection failed and the old blank-canvas passed report invalid as screenshot evidence. Retain images locally, outside public source distribution.
+
+SDF topology alone does not prove SPICE initialization or usable simulation. Read `diagnostics()` and require real native time. Log lookup validates the owned VSM Debugger/Log Window/ListView hierarchy or the custom-class independent Simulation Log; it must not assume a standard `#32770` dialog or choose an arbitrary list. Failed native startup runs stay failed even if their netlists compare correctly.
+
+`Session.menu(path, timeout=15)` waits only for a uniquely matched disabled command, with bounded live process/main-window/menu rechecks and another read before dispatch. Missing/ambiguous paths or changed PID/main-window identity fail; command IDs are not cached. Do not turn this into unbounded retries or relax ownership/profile checks. Keep the earlier disabled-menu failure as evidence before the fix.
+
+BUTTON/LOGICSTATE controls require saved bindings and native STATE readback, at most five controls per run. Prefer `Scenario` for press/hold/release/bounce. Use `prepare_control_batches`/`run_control_batches` for more inputs in independent groups; never claim simultaneous 16-key control. `observe()` returns `simulation_seconds`, not scenario-only `actual_at`. `read_display_frame()` reconstructs at least two agreeing full scan frames over a reported native window; samples can miss intersample transitions. Unknown segment/state/time results remain failures. The pure Python matrix firmware build is reproducibility evidence, not execution.
+
+Session construction and `Simulation.open()` catch startup BaseException, clean only their exact owned Popen and re-raise the original interruption. Group records retain startup PID/closed evidence even before a Simulation is returned. A checkpoint I/O error must not replace an already propagating interruption. Controlled startup interruption is cleanup evidence, not simulation success.
+
+Keep partial/cancelled/callback-failed/exited-process scenarios unpassed. Interruptions preserve partial evidence and re-raise. Context cleanup owns only its process; report failed cleanup and terminate only that still-live owned process handle if necessary. Hard process termination cannot run Python rollback.
+
+PCB routing, arbitrary voltage/waveform/model-memory acquisition, embedded VSM Studio builds and physical hardware validation remain unsupported.
+
+## Validation and release preparation
+
+Run meaningful regressions for implementation changes: `python -m unittest discover -s tests -v`. Final 0.9.1 root result is 295 passed, zero skipped, 120.379 seconds, recorded in `docs/validation/v0.9.1.json`. The independent public candidate ran 295 tests with two optional private-fixture skips, no failures/errors and 120.654 seconds; keep that separate from the root zero-skip result. The public CLI completed real native 16-key sequential 5/5/5/1 acceptance, 25 reconstructed displays, 658 SDF samples and 118 actuator readbacks; four owned processes closed gracefully and sources stayed unchanged. Its owned running capture showed 01234567 with before/after/pause times .372412/.422412/.472412 seconds and clean diagnostics. These are current results, separate from 0.9.0's 234 tests/670 samples.
+
+Both 32/48-part profiles passed native save and fresh independent reopen with full pins/properties, models/positions/values, wire/junction geometry and terminal-caption anchors retained, net29/SDF39, four owned processes gracefully closed and sources unchanged. Drawing audits at default and one-native-unit minimum spans passed: 32 parts 102/104 straight, 48 parts 118/120 straight, four bends each and zero reported overlap/non-node-contact/near-parallel issues; each retains 35 conservative text warnings. Paired example-generation medians improved about 14.6%/14.4% across 12 interleaved runs under one current core/Python/template/firmware, not a general core or simulation speed claim.
+
+Use `scripts/verify_matrix_display.py` for public reproduction: default mode rebuilds/generates/netchecks/prepares without native launch; `--execute-native` requires a new separate absolute ASCII `--temp-dir`, with optional `--capture` for an unlocked desktop and the checked Pillow window backend. Preparation and native commands need different fresh output directories. File-preparation passed is not simulation passed. Native mode targets 16 sequential keys in 5/5/5/1 groups and 25 non-atomic reconstructed displays, with finite hold/K0 bounce/rearm checks; actual samples belong to that run.
+
+Two owned real PDS startup interruptions were cleaned after the verified native profile, rethrowing the same KeyboardInterrupt and retaining partial interrupted/unpassed evidence; no simulation was executed in those guard cases. Consult `skills/proteus86-files/references/history.md` and unchanged `docs/release-0.9.0.md` for older acceptance. Keep previous evidence/ZIPs unchanged; do not relabel historical course direction/speed, editor or counter runs. File-only performance uses `scripts/benchmark_files.py --repeat 3`.
+
+The complete skill installer copies supporting resources, requires `--update` to change an existing tree and verifies recoverable backups outside the auto-loaded `skills/` directory. Preserve user extras and retain original/backup paths if rollback is blocked. Installed `.proteus86-install.json` contains a local checkout path: do not publish it.
+
+This is a reviewed source candidate only. **Do not publish or change repository visibility without the user's later authorization.** Release descriptions must say Codex, distinguish native/offline/pending results and retain licensing/provenance limits. See `docs/release-0.9.1.md`; do not rewrite the 0.9.0 release/evidence.
+
+## Clean-source follow-up
+
+Read docs/clean-source-preparation.md and docs/validation/clean-source-20261028.json for pinned provenance and the two reproducible demo builds. This follow-up does not alter runtime modules, original firmware or prior native evidence. Report current file regressions and optional private-fixture skips separately from historical native runs. A new private repository starts with one parentless commit and no inherited history; preserve the original private repository. Public visibility still requires later authorization.

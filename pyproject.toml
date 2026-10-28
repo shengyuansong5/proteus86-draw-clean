@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proteus86-draw"
+version = "0.9.1"
+description = "Codex-oriented Proteus 8.6 automation; other AI harnesses require adaptation"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+capture = ["Pillow>=11.2.1"]
+
+[project.scripts]
+proteus86 = "proteus86.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["proteus86*"]
+
+[tool.setuptools.package-data]
+"proteus86" = ["examples/*.json", "examples/*.txt"]
+"proteus86._codec" = ["LICENSE", "upstream-sha256.json"]

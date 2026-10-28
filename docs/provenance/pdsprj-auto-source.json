@@ -1,0 +1,24 @@
+{
+  "url": "https://codeload.github.com/RACErace/pdsprj-auto/zip/refs/heads/main",
+  "sha256": "fab67243bdb1eb377af225fcc707988b3b2b6c2a41f6e5461ae1c6bfc0a5df7f",
+  "original_url": "https://codeload.github.com/RACErace/pdsprj-auto/zip/refs/heads/main",
+  "archive_sha256": "fab67243bdb1eb377af225fcc707988b3b2b6c2a41f6e5461ae1c6bfc0a5df7f",
+  "pinned_commit": "d3a07201fcf9aa7929df0f5a421d0902f9dcce38",
+  "git_tree_sha1": "308e34720adc0249ff1c7be53dc8abaa08fa6dcc",
+  "source_archive_url": "https://codeload.github.com/RACErace/pdsprj-auto/zip/d3a07201fcf9aa7929df0f5a421d0902f9dcce38",
+  "pinned_archive_sha256": "53b8eb84892b16999034c4e878b28a82bed1171cbadeabed77ec37b1b5536380",
+  "source_tree_sha256": "89320160c096224f30fc1b9e5e0e3ea464d793f81ca25c268b900df7ec8b9021",
+  "source_files": 45,
+  "source_tree_hash_encoding": "sha256 canonical JSON of sorted {path,size,sha256} files; ensure_ascii=True,sort_keys=True,separators=(comma,colon)",
+  "verification": {
+    "original_archive_sha256_matched": true,
+    "original_and_pinned_archive_file_bytes_equal": true,
+    "full_git_blob_tree_matches_archive": true,
+    "retained_extracted_original_file_bytes_equal": true,
+    "license_file": "LICENSE",
+    "license_sha256": "5b796e0cd915b041da429715a7fad856826e75f9ffda3d882bbbb32aded4ccf4",
+    "license_name": "MIT",
+    "adopted_original_modules_sha256_checked": 0,
+    "scope": "Complete upstream archive source identity and original license only; no relicensing of excluded third-party/vendor assets"
+  }
+}

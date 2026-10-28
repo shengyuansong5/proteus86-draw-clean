@@ -1,0 +1,44 @@
+{
+  "license": "MIT",
+  "scope": "Project-authored validation/demo sources only; private coursework is excluded.",
+  "firmware": [
+    {
+      "source": "examples/blink8051.a51",
+      "source_sha256": "2a133d237b32a509e59c498b19bf29387083722b7e6190659b8d594a0cfa290b",
+      "hex": "examples/blink8051.hex",
+      "hex_sha256": "7b31a1a924f12a5e272ccb6ba9886c4263cac5996a967a19d38e6f226cba66fa",
+      "provenance": "project_authored_independent_validation_firmware",
+      "reproducible_build_record": "docs/provenance/demo-firmware-build.json",
+      "builder": "examples/build_demo_firmware.py",
+      "builder_source_sha256": "163259abe404d66173e5e99aa6c8c96624e95763d8b1dc6e965e34a90b3ecdc1",
+      "program_bytes": 39,
+      "addressed_bytes_sha256": "60d8dc999995f1374cb5a41bad6ac31df1232f51af9c9b136ec92ea85745d270",
+      "rebuild_address_bytes_equal": true,
+      "rebuild_hex_bytes_equal": true,
+      "rebuilt_hex_sha256": "7b31a1a924f12a5e272ccb6ba9886c4263cac5996a967a19d38e6f226cba66fa"
+    },
+    {
+      "source": "examples/key_counter.a51",
+      "source_sha256": "9b8e9fdd445d264a7c72417452578ecd76a744c62392a52cf924818dc6b459a3",
+      "hex": "examples/key_counter.hex",
+      "hex_sha256": "ff0fb725c791a5af9b4e26113c0bb0790b9f690074bd7feee70edd9246f5507a",
+      "provenance": "project_authored_independent_validation_firmware",
+      "reproducible_build_record": "docs/provenance/demo-firmware-build.json",
+      "builder": "examples/build_demo_firmware.py",
+      "builder_source_sha256": "163259abe404d66173e5e99aa6c8c96624e95763d8b1dc6e965e34a90b3ecdc1",
+      "program_bytes": 42,
+      "addressed_bytes_sha256": "4be7f00de50b601d10ef69c17fd42cbcdf6fe7d62108add61eb0cca50ee7aa7a",
+      "rebuild_address_bytes_equal": true,
+      "rebuild_hex_bytes_equal": false,
+      "rebuilt_hex_sha256": "247e52dc8b1934c175c3e53b1fb7dfc6f41dfe40449a91dbd72e9b437885268e"
+    },
+    {
+      "source": "examples/matrix_display.a51",
+      "source_sha256": "179ff14060c276846c26fc3a8e85b70786ea5a4ceae0dfaee1edd9b931da3bd0",
+      "hex": "examples/matrix_display.hex",
+      "hex_sha256": "e2c340e7262aa453fbb5765fefe8d8155ed4e61980f564ef2914e7e1604a4842",
+      "provenance": "project_authored_independent_validation_firmware",
+      "reproducible_build_record": "docs/provenance/matrix-firmware.json"
+    }
+  ]
+}

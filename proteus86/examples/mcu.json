@@ -1,0 +1,11 @@
+{
+  "title": "Python AT89C52 drawing - Proteus 8.6",
+  "units": "mm",
+  "components": [
+    {"device": "AT89C52", "ref": "U1", "value": "AT89C52", "x": 0, "y": 25.4},
+    {"device": "RESISTOR", "ref": "R1", "value": "1k", "x": -50.8, "y": -22.86},
+    {"device": "LED-YELLOW", "ref": "D1", "value": "LED-YELLOW", "x": -76.2, "y": -22.86}
+  ],
+  "connections": [["U1.1", "R1.2"], ["R1.1", "D1.K"]],
+  "terminals": [{"kind": "power", "name": "VCC", "pin": "D1.A"}]
+}

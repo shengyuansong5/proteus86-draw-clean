@@ -1,0 +1,11 @@
+{
+  "title": "Python LED - Proteus 8.6",
+  "units": "mm",
+  "components": [
+    {"device": "VSOURCE", "ref": "V1", "value": "5", "x": -25.4, "y": 0, "label_offsets": {"reference": [-10.16, -2.54], "value": [-10.16, -7.62], "device": [-10.16, -7.62]}},
+    {"device": "RESISTOR", "ref": "R1", "value": "330", "x": 0, "y": 0},
+    {"device": "LED-YELLOW", "ref": "D1", "value": "LED-YELLOW", "x": 25.4, "y": 0, "rotation": 90, "label_offsets": {"reference": [5.08, 7.62], "value": [5.08, 2.54], "device": [5.08, 2.54]}}
+  ],
+  "connections": [["V1.+", "R1.1"], ["R1.2", "D1.A"], ["D1.K", "V1.-"]],
+  "terminals": [{"kind": "ground", "name": "", "pin": "V1.-"}]
+}

@@ -1,0 +1,2 @@
+# Preserve byte-exact runtime hashes used by the native acceptance guards.
+* -text whitespace=cr-at-eol

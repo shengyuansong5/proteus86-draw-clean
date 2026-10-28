@@ -1,0 +1,283 @@
+{
+  "license": "MIT",
+  "asset_kind": "project_authored_independent_validation_examples",
+  "python_requires": ">=3.10",
+  "builder": "examples/build_demo_firmware.py",
+  "hex_codec": "examples/build_matrix_firmware.py",
+  "standard_library_only": true,
+  "external_tools_used": false,
+  "native_simulation_executed": false,
+  "comparison": "All occupied addresses and bytes, separately recording raw HEX text equality",
+  "builds": [
+    {
+      "builder": "proteus86_demo_subset_v1",
+      "builder_source_sha256": "163259abe404d66173e5e99aa6c8c96624e95763d8b1dc6e965e34a90b3ecdc1",
+      "hex_codec_source": "build_matrix_firmware.py",
+      "hex_codec_source_sha256": "85742aa77d0c3c5b3cd7e5a4fac5475d7414478ef32ffdcbc1f05eef25321350",
+      "source": "blink8051.a51",
+      "source_sha256": "2a133d237b32a509e59c498b19bf29387083722b7e6190659b8d594a0cfa290b",
+      "hex": "blink8051.hex",
+      "hex_sha256": "7b31a1a924f12a5e272ccb6ba9886c4263cac5996a967a19d38e6f226cba66fa",
+      "program_bytes": 39,
+      "address_min": 0,
+      "address_max": 38,
+      "addressed_bytes_encoding": "ascending address: uint16 big-endian address then uint8 value",
+      "addressed_bytes_sha256": "60d8dc999995f1374cb5a41bad6ac31df1232f51af9c9b136ec92ea85745d270",
+      "reference_hex_sha256": "7b31a1a924f12a5e272ccb6ba9886c4263cac5996a967a19d38e6f226cba66fa",
+      "reference_address_bytes_equal": true,
+      "reference_hex_bytes_equal": true,
+      "external_tools_used": false,
+      "native_simulation_executed": false,
+      "scope": "Source-to-instruction-byte reproducibility only; no firmware execution or native validation",
+      "symbols": {
+        "DELAY": 26,
+        "INNER": 32,
+        "LOOP": 6,
+        "MIDDLE": 30,
+        "OUTER": 28
+      },
+      "listing": [
+        {
+          "line": 4,
+          "address": 0,
+          "instruction": "MOV 090H,#0FFH",
+          "bytes": "7590FF"
+        },
+        {
+          "line": 5,
+          "address": 3,
+          "instruction": "MOV 0A0H,#00H",
+          "bytes": "75A000"
+        },
+        {
+          "line": 6,
+          "address": 6,
+          "instruction": "MOV 090H,#00H",
+          "bytes": "759000"
+        },
+        {
+          "line": 7,
+          "address": 9,
+          "instruction": "MOV 0A0H,#07FH",
+          "bytes": "75A07F"
+        },
+        {
+          "line": 8,
+          "address": 12,
+          "instruction": "LCALL DELAY",
+          "bytes": "12001A"
+        },
+        {
+          "line": 9,
+          "address": 15,
+          "instruction": "MOV 090H,#0FFH",
+          "bytes": "7590FF"
+        },
+        {
+          "line": 10,
+          "address": 18,
+          "instruction": "MOV 0A0H,#00H",
+          "bytes": "75A000"
+        },
+        {
+          "line": 11,
+          "address": 21,
+          "instruction": "LCALL DELAY",
+          "bytes": "12001A"
+        },
+        {
+          "line": 12,
+          "address": 24,
+          "instruction": "SJMP LOOP",
+          "bytes": "80EC"
+        },
+        {
+          "line": 13,
+          "address": 26,
+          "instruction": "MOV R7,#8",
+          "bytes": "7F08"
+        },
+        {
+          "line": 14,
+          "address": 28,
+          "instruction": "MOV R6,#250",
+          "bytes": "7EFA"
+        },
+        {
+          "line": 15,
+          "address": 30,
+          "instruction": "MOV R5,#250",
+          "bytes": "7DFA"
+        },
+        {
+          "line": 16,
+          "address": 32,
+          "instruction": "DJNZ R5,INNER",
+          "bytes": "DDFE"
+        },
+        {
+          "line": 17,
+          "address": 34,
+          "instruction": "DJNZ R6,MIDDLE",
+          "bytes": "DEFA"
+        },
+        {
+          "line": 18,
+          "address": 36,
+          "instruction": "DJNZ R7,OUTER",
+          "bytes": "DFF6"
+        },
+        {
+          "line": 19,
+          "address": 38,
+          "instruction": "RET",
+          "bytes": "22"
+        }
+      ]
+    },
+    {
+      "builder": "proteus86_demo_subset_v1",
+      "builder_source_sha256": "163259abe404d66173e5e99aa6c8c96624e95763d8b1dc6e965e34a90b3ecdc1",
+      "hex_codec_source": "build_matrix_firmware.py",
+      "hex_codec_source_sha256": "85742aa77d0c3c5b3cd7e5a4fac5475d7414478ef32ffdcbc1f05eef25321350",
+      "source": "key_counter.a51",
+      "source_sha256": "9b8e9fdd445d264a7c72417452578ecd76a744c62392a52cf924818dc6b459a3",
+      "hex": "key_counter.hex",
+      "hex_sha256": "247e52dc8b1934c175c3e53b1fb7dfc6f41dfe40449a91dbd72e9b437885268e",
+      "program_bytes": 42,
+      "address_min": 0,
+      "address_max": 41,
+      "addressed_bytes_encoding": "ascending address: uint16 big-endian address then uint8 value",
+      "addressed_bytes_sha256": "4be7f00de50b601d10ef69c17fd42cbcdf6fe7d62108add61eb0cca50ee7aa7a",
+      "reference_hex_sha256": "ff0fb725c791a5af9b4e26113c0bb0790b9f690074bd7feee70edd9246f5507a",
+      "reference_address_bytes_equal": true,
+      "reference_hex_bytes_equal": false,
+      "external_tools_used": false,
+      "native_simulation_executed": false,
+      "scope": "Source-to-instruction-byte reproducibility only; no firmware execution or native validation",
+      "symbols": {
+        "DELAY": 33,
+        "INNER": 37,
+        "OUTER": 35,
+        "WAITKEY": 8,
+        "WAITUP": 22
+      },
+      "listing": [
+        {
+          "line": 5,
+          "address": 0,
+          "instruction": "MOV SP,#060H",
+          "bytes": "758160"
+        },
+        {
+          "line": 6,
+          "address": 3,
+          "instruction": "MOV R0,#0",
+          "bytes": "7800"
+        },
+        {
+          "line": 7,
+          "address": 5,
+          "instruction": "MOV 090H,#0FFH",
+          "bytes": "7590FF"
+        },
+        {
+          "line": 9,
+          "address": 8,
+          "instruction": "JB 0B2H,WAITKEY",
+          "bytes": "20B2FD"
+        },
+        {
+          "line": 10,
+          "address": 11,
+          "instruction": "LCALL DELAY",
+          "bytes": "120021"
+        },
+        {
+          "line": 11,
+          "address": 14,
+          "instruction": "JB 0B2H,WAITKEY",
+          "bytes": "20B2F7"
+        },
+        {
+          "line": 12,
+          "address": 17,
+          "instruction": "INC R0",
+          "bytes": "08"
+        },
+        {
+          "line": 13,
+          "address": 18,
+          "instruction": "MOV A,R0",
+          "bytes": "E8"
+        },
+        {
+          "line": 14,
+          "address": 19,
+          "instruction": "CPL A",
+          "bytes": "F4"
+        },
+        {
+          "line": 15,
+          "address": 20,
+          "instruction": "MOV 090H,A",
+          "bytes": "F590"
+        },
+        {
+          "line": 17,
+          "address": 22,
+          "instruction": "JNB 0B2H,WAITUP",
+          "bytes": "30B2FD"
+        },
+        {
+          "line": 18,
+          "address": 25,
+          "instruction": "LCALL DELAY",
+          "bytes": "120021"
+        },
+        {
+          "line": 19,
+          "address": 28,
+          "instruction": "JNB 0B2H,WAITUP",
+          "bytes": "30B2F7"
+        },
+        {
+          "line": 20,
+          "address": 31,
+          "instruction": "SJMP WAITKEY",
+          "bytes": "80E7"
+        },
+        {
+          "line": 22,
+          "address": 33,
+          "instruction": "MOV R5,#60",
+          "bytes": "7D3C"
+        },
+        {
+          "line": 24,
+          "address": 35,
+          "instruction": "MOV R6,#250",
+          "bytes": "7EFA"
+        },
+        {
+          "line": 26,
+          "address": 37,
+          "instruction": "DJNZ R6,INNER",
+          "bytes": "DEFE"
+        },
+        {
+          "line": 27,
+          "address": 39,
+          "instruction": "DJNZ R5,OUTER",
+          "bytes": "DDFA"
+        },
+        {
+          "line": 28,
+          "address": 41,
+          "instruction": "RET",
+          "bytes": "22"
+        }
+      ]
+    }
+  ]
+}

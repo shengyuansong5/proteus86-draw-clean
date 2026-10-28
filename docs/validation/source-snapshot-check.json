@@ -1,0 +1,18 @@
+{
+  "record_kind": "historical_source_snapshot_check",
+  "current_candidate_certified": false,
+  "interpretation": "All results and byte-identity claims below refer only to the source snapshot checked on 2026-10-22, not the changed 0.9.0 candidate.",
+  "version": "0.8.3",
+  "checked_at": "2026-10-22T12:59:19.351884+00:00",
+  "scope": "File regressions of the source-only publication checkout; no native launch",
+  "tests": 119,
+  "passed": true,
+  "skipped": 0,
+  "seconds": 20.346,
+  "configured_local_template": true,
+  "optional_private_reference_configured": true,
+  "private_reference_fixtures_distributed": false,
+  "native_processes_started": false,
+  "core_runtime_identical_to_v083_manifest": true,
+  "source_record_sha256": "c05844c6b650e136bf56ea49a835f94f82c50028b255dd7cffc10dbc3cdb8e39"
+}

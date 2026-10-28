@@ -1,0 +1,24 @@
+{
+  "url": "https://codeload.github.com/kudoumakoto6523-design/Proteus_automatic_package/zip/refs/heads/main",
+  "sha256": "24d1e4ab6a9800f1569bff6345df0bf2a1d53a82f4677994327cc3fb1d73aeeb",
+  "original_url": "https://codeload.github.com/kudoumakoto6523-design/Proteus_automatic_package/zip/refs/heads/main",
+  "archive_sha256": "24d1e4ab6a9800f1569bff6345df0bf2a1d53a82f4677994327cc3fb1d73aeeb",
+  "pinned_commit": "7439819a7ea4cff47fb9b321d8b0e97ac74fafb2",
+  "git_tree_sha1": "ac6cefcc6efcc3b883eec5762b3c79e74ccdfe87",
+  "source_archive_url": "https://codeload.github.com/kudoumakoto6523-design/Proteus_automatic_package/zip/7439819a7ea4cff47fb9b321d8b0e97ac74fafb2",
+  "pinned_archive_sha256": "46aee63da01b19a62538f967ba65524f0f30134ac1d75f4d5e67f30e5d8717fa",
+  "source_tree_sha256": "0a580f3fc254ce787dfb9bcc9f2662818b5ce47a07d332bc05fcf577029d9544",
+  "source_files": 97,
+  "source_tree_hash_encoding": "sha256 canonical JSON of sorted {path,size,sha256} files; ensure_ascii=True,sort_keys=True,separators=(comma,colon)",
+  "verification": {
+    "original_archive_sha256_matched": true,
+    "original_and_pinned_archive_file_bytes_equal": true,
+    "full_git_blob_tree_matches_archive": true,
+    "retained_extracted_original_file_bytes_equal": true,
+    "license_file": "LICENSE",
+    "license_sha256": "5ae0fb1a3679efee0927cf115a2bc832b830351b175535447119111269010f3b",
+    "license_name": "MIT",
+    "adopted_original_modules_sha256_checked": 10,
+    "scope": "Complete upstream archive source identity and original license only; no relicensing of excluded third-party/vendor assets"
+  }
+}

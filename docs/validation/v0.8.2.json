@@ -1,0 +1,207 @@
+{
+  "version": "0.8.2",
+  "recorded_at": "2026-10-17T23:29:02.076278+08:00",
+  "source_record_sha256": "0933fc18552cfd92cc24cf43465b3bfb0a027c0242d6b4d2cba628d9608cd4d8",
+  "scope": "Saved drawing spacing/straightness diagnostics and exact 25-part visual profile; native editor acceptance, no new simulation",
+  "code_manifest": [
+    {
+      "path": "proteus86/__init__.py",
+      "sha256": "fd014fbff33f68a76c679f051c37361dc5e91bcc34bcaa6413c0f910b9cb5c8d"
+    },
+    {
+      "path": "proteus86/__main__.py",
+      "sha256": "a65d48d940d046b8ec6dc842d70544789582b98e5b8c61e00b4ac492ddad4c2c"
+    },
+    {
+      "path": "proteus86/_codec/__init__.py",
+      "sha256": "1687154676b930b4086c03e0aeed5d4c838ef7ec1bd4d7f7d394aa49097f8b1d"
+    },
+    {
+      "path": "proteus86/_codec/component_codec.py",
+      "sha256": "7b2cd2cf3f04d688ebbcff8dfb353eb5eff8a9dbc6e6e2e93df3bacf28f06a95"
+    },
+    {
+      "path": "proteus86/_codec/device_library.py",
+      "sha256": "7cd0451591047fc5d045498a92c1cef6354b39d9a5ee315f6f77edc7f11a2eec"
+    },
+    {
+      "path": "proteus86/_codec/net_edit.py",
+      "sha256": "f847194ee3c34c056815f6338fb4d6d38de904f69f45b88c4000c108ce09ac12"
+    },
+    {
+      "path": "proteus86/_codec/net_objects.py",
+      "sha256": "80405b72694cf59576a972f2d03b5e14329048470843042d70ed6daf672e1c9e"
+    },
+    {
+      "path": "proteus86/_codec/pin_geometry.py",
+      "sha256": "7adc84ebfdadfbbd3d0e6812e5b3cd5717555ec66c289c5d14e11057400f1708"
+    },
+    {
+      "path": "proteus86/_codec/proteus_native.py",
+      "sha256": "1793ade34d46c86ac02384f447a25158a143890900416dabaabc3ac75fbba375"
+    },
+    {
+      "path": "proteus86/_codec/proteus_project.py",
+      "sha256": "50cdbafaf0c137b83c837e45403a3e21b34ca1a9ab9bbfcc468b2e65ba30d534"
+    },
+    {
+      "path": "proteus86/_codec/proteus_session.py",
+      "sha256": "33da8aa37fd3519e66b5d931df519c44640d3bfd687c95661d7d8516581d9990"
+    },
+    {
+      "path": "proteus86/_codec/wire_codec.py",
+      "sha256": "707a9fb7e3bfdb805c09da8527f9606751777031162ca2ec949295bcf50f9b4e"
+    },
+    {
+      "path": "proteus86/api.py",
+      "sha256": "7b61f680141a73915084266c921dea5f86b87e969eff086fde884a7a8d8c9b1b"
+    },
+    {
+      "path": "proteus86/connectivity.py",
+      "sha256": "dcad536bf10d681c0e2f9eabea4510326bd956258671cf40655a7cb9193b9612"
+    },
+    {
+      "path": "proteus86/design.py",
+      "sha256": "e86c1fa33e50b83f178462eac440024d4ac8fc51817f2e3d66c7d2ab2025a4df"
+    },
+    {
+      "path": "proteus86/diagnostics.py",
+      "sha256": "e95077d60707cdcfbcf4c18d669f9cc12bcefeb26cbba505f6b5fc7939b26be1"
+    },
+    {
+      "path": "proteus86/firmware.py",
+      "sha256": "67555a7b4b914525e608a59d8e07571c00595f6e6b0c4f3a3b4513724f7d3c6e"
+    },
+    {
+      "path": "proteus86/geometry.py",
+      "sha256": "8ba8da7165eab6ab05824e45fcc6a298df6ae5504e7c138e105effedaf6b18b9"
+    },
+    {
+      "path": "proteus86/inspection.py",
+      "sha256": "f462c402d00aceaa55c83d6932f4cb79a05465c6ef04841713578ed8bb707ae0"
+    },
+    {
+      "path": "proteus86/installation.py",
+      "sha256": "303cea5d39b82bc8f5af65e711a7c836386c8180c644833883a326846cb6892d"
+    },
+    {
+      "path": "proteus86/interactions.py",
+      "sha256": "8c6bbdc882b7e366864aacc8ec10f785532524146d35bc1ec7a4225d02a88862"
+    },
+    {
+      "path": "proteus86/layout.py",
+      "sha256": "fdbe6e5ee16dac01cb72e7e08f61674da0a38cf1716c7c1b156e4b88a74b38d8"
+    },
+    {
+      "path": "proteus86/native_simulation.py",
+      "sha256": "79be6f1dd7322d46843dd897f1b5b5b23f09fa47e58769c0891440dc2133893e"
+    },
+    {
+      "path": "proteus86/netlist.py",
+      "sha256": "53de9f1613f1b207996d3bc5c4f5060995984c3a3869209100713c7348134240"
+    },
+    {
+      "path": "proteus86/preview.py",
+      "sha256": "4058c317dcb32e3531c35d78c65ee631d414e5ec9dc49403a7cd648528eb1947"
+    },
+    {
+      "path": "proteus86/quality.py",
+      "sha256": "a95553c42da1b54cce39536e695614b62eeff2807be8ad380e816607a5c4c9e4"
+    },
+    {
+      "path": "proteus86/repair.py",
+      "sha256": "a1cde2eb862c71c99bb4af8c84c1f61b320c9e063186d00e9fff1b5b29ec623b"
+    },
+    {
+      "path": "proteus86/resources.py",
+      "sha256": "0ec4aee7b4834d488dad952459143bf61a3b08c8b26bcf04a1e27d525655740f"
+    },
+    {
+      "path": "proteus86/routing.py",
+      "sha256": "219fd28594cfc5e632aa60e4de38e5a3ddeeee2dcca9e1fb24af6269b5c9e0a6"
+    },
+    {
+      "path": "proteus86/scenario_runner.py",
+      "sha256": "891949ee5a87419e6de9dc6a3b5d190ccfd981c4e5d60caabf77cce0908e24af"
+    },
+    {
+      "path": "proteus86/scenarios.py",
+      "sha256": "0b730db4ebf8724ecf857494989ffe80e8247d034602723098a2dfd091755cf8"
+    },
+    {
+      "path": "proteus86/session.py",
+      "sha256": "0c0a93e2a69a85309b4d7fa48a6659c75cf8be88de3bafcb2adc1ff75917486d"
+    },
+    {
+      "path": "proteus86/simulation.py",
+      "sha256": "381d648695e3741c7f7cb5db11d770c340dfdb6178a203ad7de4863e7bee8388"
+    },
+    {
+      "path": "proteus86/verification.py",
+      "sha256": "96414ea2305698783c6bd97615d1ac1ee68645ee45bd9fdcd669fa93726a3e0f"
+    }
+  ],
+  "regression_tests": {
+    "count": 112,
+    "passed": true,
+    "seconds": 21.737,
+    "note": "Historical 2026-10-17 local run; optional private reference fixture not distributed"
+  },
+  "layout": {
+    "metrics": {
+      "before": {
+        "crossings": 1,
+        "overlaps": 0,
+        "near_parallel": 4,
+        "straight_wires": 29,
+        "wire_length_mm": 997.0,
+        "bends": 29,
+        "warnings": 0
+      },
+      "after": {
+        "crossings": 0,
+        "overlaps": 0,
+        "near_parallel": 0,
+        "straight_wires": 33,
+        "wire_length_mm": 1344.98,
+        "bends": 23,
+        "warnings": 0
+      }
+    },
+    "spacing_mm": {
+      "led_rows": 10.16,
+      "output_lanes": 7.62
+    },
+    "strict_quality": {
+      "passed": true,
+      "scope": "Saved drawing geometry only; not electrical, simulation or PCB clearance verification",
+      "minimum_gap_mm": 2.54,
+      "minimum_parallel_run_mm": 1e-05,
+      "overlaps": [],
+      "crossings": [],
+      "near_parallel": [],
+      "minimum_measured_parallel_gap_mm": 2.54,
+      "wires": 44,
+      "straight_wires": 33,
+      "bends": 23,
+      "wire_length_mm": 1344.98
+    }
+  },
+  "native": {
+    "passed": true,
+    "simulation_executed": false,
+    "native_save_python_reopen": true,
+    "second_independent_native_reopen": true,
+    "geometry_preserved": true,
+    "full_known_nonpower_pin_partition_equal": true
+  },
+  "source_distribution": "Core proteus86 runtime bytes match the recorded manifest. Documentation and optional reference paths were sanitized for this source snapshot.",
+  "limitations": [
+    "The visual profile only accepts the exact 25-part refs/devices; other circuits need explicit layout/routing choices.",
+    "The quality API audits saved wire geometry, not every 2D proximity, complete text/widget bounds, electrical behavior, voltage or simulation.",
+    "Default near-parallel reporting requires projected overlap of 2.54 mm. This example additionally passed one-native-unit overlap checks.",
+    "Physical MCU pin pitch stays 2.54 mm; 7.62 mm spacing describes vertical output lanes, not every pin-entry stub.",
+    "Greater visual spacing increases total wire length. Generic automatic routing behavior is unchanged.",
+    "One concurrent library-read PermissionError was retained; a later serial full suite passed, and the exact cause was not established."
+  ]
+}
