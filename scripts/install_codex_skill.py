@@ -243,7 +243,7 @@ def install_skill(source, codex_directory, *, update=False, checkout_root=None):
                     raise
 
 
-def install_platform_skill(root, directory, platform, *, update=False):
+def install_platform_skill(root, directory, platform, *, update=False, portable=False):
     """Assemble one small platform entry over the same canonical resources."""
     if platform not in ('codex', 'dsh'):
         raise ValueError('Supported platform entries are codex and dsh')
@@ -251,7 +251,14 @@ def install_platform_skill(root, directory, platform, *, update=False):
     source = root / 'skills' / SKILL
     incoming = _snapshot(source)
     overlay = root / 'adapters' / platform / 'skill.md'
-    text = overlay.read_text(encoding='utf-8-sig')
+    overlay_text = overlay.read_text(encoding='utf-8-sig')
+    text, portable_text = overlay_text, None
+    if portable:
+        executable = root.parent / 'runtime/python.exe'
+        if not executable.is_file():
+            raise FileNotFoundError('Portable bundled runtime is missing: ' + str(executable))
+        portable_text = (root / 'portable/skill.md').read_text(encoding='utf-8-sig')
+        text += '\n\n' + portable_text
     parent = directory / '.skill-source-builds'
     if parent.exists() and (parent.is_symlink() or getattr(parent.lstat(), 'st_reparse_tag', 0)):
         raise ValueError('Adapter source staging must not be a reparse point')
@@ -263,7 +270,8 @@ def install_platform_skill(root, directory, platform, *, update=False):
             _copy_file(source / name, staged / name)
         original = (staged / 'SKILL.md').read_text(encoding='utf-8-sig')
         (staged / 'SKILL.md').write_text(original.rstrip() + '\n\n' + text, encoding='utf-8')
-        if _snapshot(source) != incoming or overlay.read_text(encoding='utf-8-sig') != text:
+        if (_snapshot(source) != incoming or overlay.read_text(encoding='utf-8-sig') != overlay_text or
+                portable and (root / 'portable/skill.md').read_text(encoding='utf-8-sig') != portable_text):
             raise RuntimeError('Canonical skill or platform entry changed during assembly')
         result = install_skill(staged, directory, update=update, checkout_root=root)
         result['platform'] = platform

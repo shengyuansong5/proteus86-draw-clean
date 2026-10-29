@@ -1,5 +1,9 @@
 # 第三方来源与许可
 
+## Windows 便携包运行环境
+
+便携 Release 附件另含 Python 官方 Windows x64 嵌入式运行环境，以及 PyPI 发布的 Pillow wheel；固定版本、来源和 SHA-256 见 `portable/dependencies.json`。Python 的完整原始许可位于包内 `runtime/LICENSE.txt`，Pillow 及其图像库许可保留在 `runtime/site-packages` 的对应 dist-info 许可目录。除隔离搜索路径配置外，不修改这些运行时二进制；它们不改授项目 MIT 许可。源码仓库不包含这些二进制，构建时从固定来源校验后打包。
+
 ## 功能参考
 
 [RACErace/pdsprj-auto](https://github.com/RACErace/pdsprj-auto)（MIT）是清单、布局、布线、引脚检查、Protel 转换与预览流程的功能参考，未将其代码复制进运行时。本项目的坐标单位为毫米。

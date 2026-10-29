@@ -1,0 +1,138 @@
+{
+  "version": "0.9.2b2",
+  "date": "2026-10-29",
+  "passed": true,
+  "platform": "windows-x64",
+  "dependencies": {
+    "python": {
+      "version": "3.14.10",
+      "url": "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embed-amd64.zip",
+      "filename": "python-3.14.10-embed-amd64.zip",
+      "bytes": 12619664,
+      "sha256": "90905e64a840557d8c1bc4f5b74db3d7ee85e3ffb217611cac1c7813acea4159"
+    },
+    "pillow": {
+      "version": "13.0.0",
+      "filename": "pillow-13.0.0-cp314-cp314-win_amd64.whl",
+      "url": "https://files.pythonhosted.org/packages/50/e2/7ad17747517e4c813dca78257d6bb593466f8231baf1384bc98d92745edb/pillow-13.0.0-cp314-cp314-win_amd64.whl",
+      "sha256": "f7cbb7a64e7ec664775195e4f81923bc8a93d9451b963f844e59118f63147a7a",
+      "bytes": 7281830
+    }
+  },
+  "bundled_interpreter_regressions": {
+    "tests": 338,
+    "passed": 336,
+    "skipped": 2,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 117.428,
+    "skip_details": [
+      {
+        "test": "test_actual_private_native32_fixture_when_explicitly_configured (test_native_entity_extension.NativeEntityExtensionTests.test_actual_private_native32_fixture_when_explicitly_configured)",
+        "reason": "Optional private native-save reproduction is not distributed"
+      },
+      {
+        "test": "test_actual_teacher_reference_diagnostics_are_read_only (test_resources_diagnostics.ResourcesDiagnosticsTests.test_actual_teacher_reference_diagnostics_are_read_only)",
+        "reason": "Optional private reference fixtures not configured"
+      }
+    ],
+    "native_launch_forbidden": true,
+    "successful": true
+  },
+  "root_python310_regressions_before_final_startup_refinement": {
+    "tests": 337,
+    "passed": 336,
+    "skipped": 1,
+    "failures": 0,
+    "errors": 0,
+    "seconds": 148.08,
+    "skip_details": [
+      {
+        "test": "test_actual_private_native32_fixture_when_explicitly_configured (test_native_entity_extension.NativeEntityExtensionTests)",
+        "reason": "Optional private native-save reproduction is not distributed"
+      }
+    ],
+    "native_launch_forbidden": true,
+    "successful": true
+  },
+  "installation_and_file_checks": {
+    "passed": true,
+    "path_without_system_python": true,
+    "poisoned_pythonpath_ignored": true,
+    "zip_extraction_and_relocation": true,
+    "unicode_spaces_and_ampersand_path": true,
+    "both_platform_agent_installs": true,
+    "dry_run_no_home_writes": true,
+    "idempotent_install": true,
+    "explicit_update_passed": true,
+    "json_error_exit_code": 2,
+    "shared_references_equal": true,
+    "cli_and_mcp_cmd_entries_passed": true,
+    "live_stdio_MCP_matrix_preparation": true,
+    "matrix_parts": 48,
+    "matrix_expected_nets": 29,
+    "system_python_required": false,
+    "DSH_real_cli_config_composition": true,
+    "DSH_actual_MCP_client_transport": true,
+    "DSH_model_session_executed": false,
+    "native_simulation_executed": false
+  },
+  "agent_entry": {
+    "machine_manifest": "INSTALL.json",
+    "command": "Install-Agent.cmd",
+    "flags": [
+      "--platform",
+      "--home",
+      "--json",
+      "--dry-run",
+      "--update"
+    ],
+    "error_exit_code": 2,
+    "success_exit_code": 0,
+    "interactive_prompts": false,
+    "existing_harness_profiles_modified": false,
+    "mcp_registration_automatic": false,
+    "next_actions_returned": true
+  },
+  "native_compatibility": {
+    "passed": true,
+    "scope": "Owned native portable compatibility smoke, not full 16-key acceptance",
+    "actual_initial_simulation_seconds": 0.2,
+    "reconstructed_displays": [
+      "01234567",
+      "01234510",
+      "01234510"
+    ],
+    "display_reconstruction_samples": 87,
+    "K0_native_press_and_release_readback": true,
+    "diagnostics_passed": true,
+    "capture_passed": true,
+    "capture_times": {
+      "before_image": 0.29201,
+      "after_image": 0.59201,
+      "paused_after_capture": 0.59201
+    },
+    "asynchronous_worker_simulation_seconds": 0.2,
+    "asynchronous_worker_passed": true,
+    "two_owned_processes_closed": true,
+    "source_unchanged": true,
+    "new_full_16_key_acceptance": false
+  },
+  "old_failed_checks_preserved": [
+    "Initial whole-file download stalled; official ranged downloads completed with full SHA-256 verification.",
+    "DSH dump output was YAML, not JSON; test decoder corrected.",
+    "Isolated Python requires explicit UTF-8 and no-bytecode flags; portable startup corrected.",
+    "Workspace guard correctly rejected an external default output; startup now prepares a checked in-workspace subdirectory.",
+    "Two pre-native reads failed across test user contexts; private control groups were regenerated under the native process owner without changing ACLs."
+  ],
+  "limitations": [
+    "This is a portable backend compatibility check, not a new full 16-key firmware acceptance.",
+    "DSH actual CLI/config/MCP client tested; no new model conversation or Web UI validation.",
+    "Existing Proteus vendor EULA/interoperability uncertainty remains disclosed.",
+    "Tests with PATH stripped of Python are not a clean Windows virtual-machine certification."
+  ],
+  "original_private_repository_changed": false,
+  "vendor_Proteus_assets_bundled": false,
+  "local_screenshots_and_native_runs_excluded": true,
+  "model_and_global_permissions_changed": false
+}

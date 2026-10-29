@@ -9,7 +9,7 @@ from .resources import package_project
 from .diagnostics import diagnose_project
 from .scenarios import Scenario,evaluate_samples
 
-__version__ = "0.9.2b1"
+__version__ = "0.9.2b2"
 __all__ = ["Circuit", "Library", "Project", "UnsupportedFormat", "Installation", "mm", "from_spec", "from_design", "route_file", "parse_design", "wiringcheck", "Session", "parse_sdf", "Simulation", "SimulationError", "simulate", "firmware_info", "prepare_run"]
 __all__ += ['PropertyError','package_project','diagnose_project','Scenario','evaluate_samples']
 __all__ += ['wire_quality']

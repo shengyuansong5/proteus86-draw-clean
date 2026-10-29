@@ -2,7 +2,7 @@
 
 让 Codex 或 DeepSeek Harness 根据文字需求，生成、修改和检查可继续编辑的 Proteus 8.6 原理图。
 
-当前版本：**0.9.2b1 · Beta**。
+当前版本：**0.9.2b2 · Beta**。
 
 ## 能做什么
 
@@ -25,14 +25,14 @@
 
 ## 开始使用
 
-[下载共通版源码 ZIP](https://github.com/shengyuansong5/proteus86-draw-clean/archive/refs/heads/main.zip)，解压到固定位置，再按对应平台的说明安装。
+[下载 Windows 便携版（免装 Python）](https://github.com/shengyuansong5/proteus86-draw-clean/releases/download/v0.9.2-beta.2/proteus86-draw-0.9.2b2-windows-x64-portable.zip) · [源码](https://github.com/shengyuansong5/proteus86-draw-clean/archive/refs/heads/main.zip)。解压后按[便携版说明](docs/portable.md)选择平台，支持 Agent 静默安装和 JSON 结果。
 
-需要 **Python 3.10+**。使用者需自行准备合法的 **Proteus 8.6 SP2** 安装及兼容模板；项目不附带厂商程序、器件库或模板。
+Windows x64 便携版已自带运行环境，源码方式需要 **Python 3.10+**。使用者仍需自行准备合法的 **Proteus 8.6 SP2** 安装及兼容模板。
 
 目前主要支持已验证的单页原理图与数字电路流程。PCB 自动布线、任意波形采集和实物验证不在支持范围内；具体兼容性与验证状态见[双平台说明](docs/platform-parity.md)。
 
 ## 更多信息
 
-[详细用法与 API](docs/manual.md) · [版本说明](docs/release-0.9.2-beta.1.md) · [平台适配](docs/platform-parity.md)
+[详细用法与 API](docs/manual.md) · [版本说明](docs/release-0.9.2-beta.2.md) · [平台适配](docs/platform-parity.md)
 
 源码采用 [MIT 许可](LICENSE)，第三方归属见 [THIRD_PARTY.md](THIRD_PARTY.md)。与 Proteus 使用条款有关的未解决风险见[公开与许可说明](docs/publication.md)。

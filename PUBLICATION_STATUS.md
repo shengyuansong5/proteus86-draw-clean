@@ -3,6 +3,11 @@ proteus86-draw-clean after acknowledgement of the unresolved Proteus
 EULA/interoperability risk. See docs/publication.md and THIRD_PARTY.md.
 This authorization is not vendor permission or a legal clearance.
 
+The 0.9.2b2 Windows portable Release additionally redistributes checksum-pinned
+official CPython and Pillow under their retained original licenses. Those runtime
+binaries are Release assets, not vendor Proteus assets or tracked source files.
+See docs/portable.md and docs/validation/portable-20261029.json.
+
 Codex and DeepSeek Harness share one core and structured dispatcher. Platform
 entries handle skill discovery, registration and harness integration separately.
 See docs/release-0.9.2-beta.1.md, docs/platform-parity.md and
